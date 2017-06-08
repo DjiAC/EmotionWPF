@@ -16,13 +16,28 @@ using System.Windows.Shapes;
 namespace EmotionWPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
     public partial class Home : Window
     {
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void EmotionButton(object sender, RoutedEventArgs e)
+        {
+            MainWindow.ChangePage("Emotion");
+        }
+
+        private void TextAnalysisButton(object sender, RoutedEventArgs e)
+        {
+            MainWindow.ChangePage("Text Analysis");
+        }
+
+        private void StatisticsButton(object sender, RoutedEventArgs e)
+        {
+            MainWindow.ChangePage("Statistics");
         }
     }
 }

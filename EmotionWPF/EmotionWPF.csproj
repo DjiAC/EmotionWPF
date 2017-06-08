@@ -72,8 +72,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EmotionPage.xaml.cs">
-      <DependentUpon>EmotionPage.xaml</DependentUpon>
+    <Compile Include="FrameStatistics.xaml.cs">
+      <DependentUpon>FrameStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrameTextAnalysis.xaml.cs">
+      <DependentUpon>FrameTextAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrameEmotion.xaml.cs">
+      <DependentUpon>FrameEmotion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Statistics\EmotionStatistics.cs" />
     <Compile Include="Statistics\Statistics.cs" />
@@ -90,7 +99,19 @@
     <Compile Include="TextAnalytics\TextAnalyticsResultJson\TextAnalyticsResultsLanguagesDocuments.cs" />
     <Compile Include="TextAnalytics\TextAnalyticsResultJson\TextAnalyticsResultsSentiment.cs" />
     <Compile Include="TextAnalytics\TextAnalyticsResultJson\TextAnalyticsResultsSentimentDocuments.cs" />
-    <Page Include="EmotionPage.xaml">
+    <Page Include="FrameStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FrameTextAnalysis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FrameEmotion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
