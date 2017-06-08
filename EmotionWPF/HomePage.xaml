@@ -1,14 +1,13 @@
-﻿<Window x:Class="EmotionWPF.Home"
+﻿<Page x:Class="EmotionWPF.HomePage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmotionWPF"
         mc:Ignorable="d"
-        Title="Home" 
+        Title="HomePage" 
         Height="600" 
-        Width="1000"
-        ResizeMode="NoResize">
+        Width="1000">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -100,4 +99,4 @@
 
         </Grid>
     </Grid>
-</Window>
+</Page>

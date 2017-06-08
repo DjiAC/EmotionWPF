@@ -10,6 +10,11 @@ namespace EmotionWPF
     public partial class MainWindow : Window
     {
         /// <summary>
+        /// Home Page 
+        /// </summary>
+        static HomePage homePage { get; set; }
+
+        /// <summary>
         /// To Handle Left Side of the Window - Frame between Menu for Home - Emotion - Text Analysis - Statistics
         /// </summary>
         static Grid menuSwitch { get; set; }
@@ -32,7 +37,8 @@ namespace EmotionWPF
         /// <summary>
         /// To Handle Right Side of the Window - Frame between Emotion - Text Analysis - Statistics
         /// </summary>
-        static Frame frameSwitch { get; set; } 
+        static Frame frameSwitch { get; set; }       
+
 
         /// <summary>
         /// Constructor
@@ -48,8 +54,12 @@ namespace EmotionWPF
             frameEmotion = new FrameEmotion();
             frameTextAnalysis = new FrameTextAnalysis();
             frameStatistics = new FrameStatistics();
-        }
 
+            homePage = new HomePage();
+
+            ChangePage("home");
+        }
+        
         /// <summary>
         /// Change the Page displayed
         /// </summary>
@@ -59,15 +69,58 @@ namespace EmotionWPF
             switch (newPage)
             {
                 case "Emotion":
-                    FrameContainer.Content = frameEmotion; 
+                    frameSwitch.Content = frameEmotion;
                     break;
                 case "Text Analysis":
-                    FrameContainer.Content = frameTextAnalysis;
+                    frameSwitch.Content = frameTextAnalysis;
                     break;
                 case "Statistics":
-                    FrameContainer.Content = frameStatistics;
+                    frameSwitch.Content = frameStatistics;
                     break;
-            }
+                case "Home Page":
+                    frameSwitch.Content = homePage;
+                    break;
+            }          
         }
+
+        /// <summary>
+        /// Access Home Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HomeButton(object sender, RoutedEventArgs e)
+        {
+            ChangePage("Home Page");
+        }
+
+        /// <summary>
+        /// Access Main Page with Emotion Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EmotionButton(object sender, RoutedEventArgs e)
+        {
+            ChangePage("Emotion");
+        }
+
+        /// <summary>
+        /// Access Main Page with Text Analysis Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextAnalysisButton(object sender, RoutedEventArgs e)
+        {
+            ChangePage("Text Analysis");
+        }
+
+        /// <summary>
+        /// Access Main Page with Statistics Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StatisticsButton(object sender, RoutedEventArgs e)
+        {
+            ChangePage("Statistics");
+        }        
     }
 }

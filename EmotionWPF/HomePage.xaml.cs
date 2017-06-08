@@ -18,23 +18,38 @@ namespace EmotionWPF
     /// <summary>
     /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class Home : Window
+    public partial class HomePage : Page
     {
-        public Home()
+        public HomePage()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Access Main Page with Emotion Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmotionButton(object sender, RoutedEventArgs e)
         {
             MainWindow.ChangePage("Emotion");
         }
 
+        /// <summary>
+        /// Access Main Page with Text Analysis Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextAnalysisButton(object sender, RoutedEventArgs e)
         {
             MainWindow.ChangePage("Text Analysis");
         }
 
+        /// <summary>
+        /// Access Main Page with Statistics Frame
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StatisticsButton(object sender, RoutedEventArgs e)
         {
             MainWindow.ChangePage("Statistics");
