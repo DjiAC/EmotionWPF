@@ -18,63 +18,54 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Name="MenuContainer">
-
+        <Grid Name="MenuContainer"
+              Background="Transparent">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0"
-                    Background="White">
-                <Button HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Click="HomeButton"
-                        Background="Transparent">
-                    <Image Source="Resources\Emotion_Logo.png"
+                    Background="White"
+                    Name="Home"
+                    MouseUp="HomeButton"
+                    Cursor="Cross">
+                <Image Source="Resources\Emotion_Logo.png"
                        Margin="10"/>
-                </Button>
             </Border>
 
             <Border Grid.Row="1"
-                    Background="Navy">
-                <Button HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Click="EmotionButton"
-                        Background="Transparent">
-                    <Image Source="Resources\Image.png" 
+                    Background="Navy"
+                    Name="Emotion"
+                    MouseUp="EmotionButton"
+                    Cursor="Cross">
+                <Image Source="Resources\Image.png" 
                        Margin="30"/>
-                </Button>
             </Border>
 
             <Border Grid.Row="2"
-                    Background="ForestGreen">
-                <Button HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Click="TextAnalysisButton"
-                        Background="Transparent">
+                    Background="ForestGreen"
+                    Name="TextAnalysis"
+                    MouseUp="TextAnalysisButton"
+                    Cursor="Cross">
                 <Image Source="Resources\Text.png"
                        Margin="30"/>
-                    </Button>
             </Border>
 
             <Border Grid.Row="3"
-                    Background="GreenYellow">
-                <Button HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Click="StatisticsButton"
-                        Background="Transparent">
+                    Background="GreenYellow"
+                    Name="Statistics"
+                    MouseUp="StatisticsButton"
+                    Cursor="Cross">
                     <Image Source="Resources\Statistics.png"
                        Margin="30"/>
-                </Button>
             </Border>
         </Grid>
 
         <Frame Grid.Column="1" 
                x:Name="FrameContainer"                
                NavigationUIVisibility="Hidden"/>
-
     </Grid>
 </Window>

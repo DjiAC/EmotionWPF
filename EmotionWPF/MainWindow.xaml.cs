@@ -10,9 +10,9 @@ namespace EmotionWPF
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// Home Page 
+        /// Frame for Home View
         /// </summary>
-        static HomePage homePage { get; set; }
+        static FrameHome frameHome { get; set; }
 
         /// <summary>
         /// To Handle Left Side of the Window - Frame between Menu for Home - Emotion - Text Analysis - Statistics
@@ -55,9 +55,11 @@ namespace EmotionWPF
             frameTextAnalysis = new FrameTextAnalysis();
             frameStatistics = new FrameStatistics();
 
-            homePage = new HomePage();
+            // Initialize Frame Home Page
+            frameHome = new FrameHome();
 
-            ChangePage("home");
+            // Go to Home Page at launch
+            ChangePage("Home Page");
         }
         
         /// <summary>
@@ -70,15 +72,19 @@ namespace EmotionWPF
             {
                 case "Emotion":
                     frameSwitch.Content = frameEmotion;
+                    menuSwitch.Visibility = Visibility.Visible;
                     break;
                 case "Text Analysis":
                     frameSwitch.Content = frameTextAnalysis;
+                    menuSwitch.Visibility = Visibility.Visible;
                     break;
                 case "Statistics":
                     frameSwitch.Content = frameStatistics;
+                    menuSwitch.Visibility = Visibility.Visible;
                     break;
                 case "Home Page":
-                    frameSwitch.Content = homePage;
+                    menuSwitch.Visibility = Visibility.Hidden;
+                    frameSwitch.Content = frameHome;                    
                     break;
             }          
         }

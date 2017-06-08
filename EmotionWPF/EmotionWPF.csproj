@@ -72,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FrameHome.xaml.cs">
+      <DependentUpon>FrameHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrameStatistics.xaml.cs">
       <DependentUpon>FrameStatistics.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
     <Compile Include="TextAnalytics\TextAnalyticsResultJson\TextAnalyticsResultsLanguagesDocuments.cs" />
     <Compile Include="TextAnalytics\TextAnalyticsResultJson\TextAnalyticsResultsSentiment.cs" />
     <Compile Include="TextAnalytics\TextAnalyticsResultJson\TextAnalyticsResultsSentimentDocuments.cs" />
+    <Page Include="FrameHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrameStatistics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -115,10 +122,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HomePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -127,10 +130,6 @@
     <Compile Include="Emotion\EmotionResultJson\EmotionResults.cs" />
     <Compile Include="Emotion\EmotionResultJson\EmotionResultsFaces.cs" />
     <Compile Include="Emotion\EmotionResultJson\EmotionResultsScores.cs" />
-    <Compile Include="HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

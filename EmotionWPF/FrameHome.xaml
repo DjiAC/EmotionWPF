@@ -1,39 +1,39 @@
-﻿<Page x:Class="EmotionWPF.HomePage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EmotionWPF"
-        mc:Ignorable="d"
-        Title="HomePage" 
-        Height="600" 
-        Width="1000">
+﻿<Page x:Class="EmotionWPF.FrameHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EmotionWPF"     
+      mc:Ignorable="d"
+      Title="HomePage" 
+      Height="600" 
+      Width="1000">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="1*"/>
+        <ColumnDefinition Width="1*"/>
+    </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0"
-              Name="Emotion">
-
-            <Border Name="BorderEmotion" 
+    <Grid Grid.Column="0"
+              Name="Emotion"
+              Margin="-200,0,200,0">
+        <Border Name="BorderEmotion" 
                     BorderBrush="#ffffff" 
                     Background="Navy">
-                <Button HorizontalAlignment="Stretch" 
+            <Button HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         Click="EmotionButton"
                         Background="Transparent">
-                    <Image Name="EmotionImg" 
+                <Image Name="EmotionImg" 
                        Source="Resources\Image.png"
                        Stretch="Uniform" 
                        HorizontalAlignment="Center" 
                        Opacity="0.6"/>
-                </Button>
-            </Border>
-            <TextBlock HorizontalAlignment="Center" 
+            </Button>
+        </Border>
+        <TextBlock HorizontalAlignment="Center" 
                        Margin="10,10" 
                        TextWrapping="Wrap" 
                        Text="EMOTION"
@@ -42,25 +42,26 @@
                        TextAlignment="Center"
                        VerticalAlignment="Top" 
                        Width="200"/>
-        </Grid>
+    </Grid>
 
-        <Grid Grid.Column="1"
-              Name="Text">
-            <Border Name="BorderTextAnalysis" 
+    <Grid Grid.Column="1"
+              Name="Text"
+              Margin="-200,0,200,0">
+        <Border Name="BorderTextAnalysis" 
                     BorderBrush="#ffffff"
                     Background="ForestGreen">
-                <Button HorizontalAlignment="Stretch" 
+            <Button HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         Click="TextAnalysisButton"
                         Background="Transparent">
-                    <Image Name="TextAnalysisImg" 
+                <Image Name="TextAnalysisImg" 
                        Source="Resources\Text.png"
                        Stretch="Uniform" 
                        HorizontalAlignment="Center" 
                        Opacity="0.6"/>
-                </Button>
-            </Border>
-            <TextBlock HorizontalAlignment="Center" 
+            </Button>
+        </Border>
+        <TextBlock HorizontalAlignment="Center" 
                        Margin="10,0" 
                        TextWrapping="Wrap" 
                        Text="TEXT ANALYTICS"
@@ -69,25 +70,26 @@
                        TextAlignment="Center"
                        VerticalAlignment="Top" 
                        Width="200"/>
-        </Grid>
+    </Grid>
 
-        <Grid Grid.Column="2"
-              Name="Statistics">
-            <Border Name="BorderStatistics" 
+    <Grid Grid.Column="2"
+              Name="Statistics"
+              Margin="-200,0,200,0">
+        <Border Name="BorderStatistics" 
                     BorderBrush="#ffffff" 
                     Background="PaleVioletRed">
-                <Button HorizontalAlignment="Stretch" 
+            <Button HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         Click="StatisticsButton"
                         Background="Transparent">
-                    <Image Name="StatisticsImg" 
+                <Image Name="StatisticsImg" 
                        Source="Resources\Statistics.png" 
                        Stretch="Uniform" 
                        HorizontalAlignment="Center" 
                        Opacity="0.6" />
-                </Button>
-            </Border>
-            <TextBlock HorizontalAlignment="Center" 
+            </Button>
+        </Border>
+        <TextBlock HorizontalAlignment="Center" 
                        Margin="10,10" 
                        TextWrapping="Wrap" 
                        Text="STATISTICS"
@@ -97,6 +99,6 @@
                        VerticalAlignment="Top" 
                        Width="200"/>
 
-        </Grid>
     </Grid>
+</Grid>
 </Page>

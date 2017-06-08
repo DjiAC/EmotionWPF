@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace EmotionWPF
 {
     /// <summary>
-    /// Interaction logic for Home.xaml
+    /// Interaction logic for FrameHome.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class FrameHome : Page
     {
-        public HomePage()
+        public FrameHome()
         {
             InitializeComponent();
         }
