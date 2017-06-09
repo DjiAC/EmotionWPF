@@ -24,7 +24,14 @@ namespace UnitTestProject
         public void TestMethod1()
         {
             EmotionConnect test = new EmotionConnect();
-            Assert.IsInstanceOfType(test.GetImageAsByteArray("path"), typeof(BinaryReader));
+            Assert.IsInstanceOfType(test.GetImageAsByteArray("../EmotionWPF/Ressources/happy.jpeg"), typeof(BinaryReader));
+        }
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            EmotionConnect test2 = new EmotionConnect();
+            Assert.AreEqual(test2.CallService("../EmotionWPF/Ressources/happy.jpeg"), EmotionConnect.ConnectionResults.success);
         }
     }
 }
