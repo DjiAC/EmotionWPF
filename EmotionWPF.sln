@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmotionWPF", "EmotionWPF\EmotionWPF.csproj", "{F273F882-F015-408B-A07E-738AE58E3621}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{6E4D9F20-2F98-4A90-AB88-EB5582770FDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F273F882-F015-408B-A07E-738AE58E3621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F273F882-F015-408B-A07E-738AE58E3621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F273F882-F015-408B-A07E-738AE58E3621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E4D9F20-2F98-4A90-AB88-EB5582770FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E4D9F20-2F98-4A90-AB88-EB5582770FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E4D9F20-2F98-4A90-AB88-EB5582770FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E4D9F20-2F98-4A90-AB88-EB5582770FDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
