@@ -14,7 +14,8 @@ namespace EmotionWPF
         /// <summary>
         /// List of TextAnalyticsLanguagesDocuments 
         /// </summary>
-        public List<TextAnalyticsLanguagesDocuments> documentsLanguages { get; set; }
+        public List<TextAnalyticsLanguagesDocuments> documents { get; set; }
+
     }
 
     /// <summary>
@@ -38,9 +39,9 @@ namespace EmotionWPF
     /// </summary>
     public class TextAnalyticsLanguagesResults
     {
-        public List<TextAnalyticsResultsLanguagesDocuments> documentsLanguages { get; set; }
+        public List<TextAnalyticsResultsLanguagesDocuments> documents { get; set; }
 
-        public List<TextAnalyticsResultsErrors> errorsLanguages { get; set; }
+        public List<TextAnalyticsResultsErrors> errors { get; set; }
     }
     
     #endregion
@@ -55,7 +56,7 @@ namespace EmotionWPF
         /// <summary>
         /// List of TextAnalyticsKeyPhraseSentimentDocuments 
         /// </summary>
-        public List<TextAnalyticsKeyPhrasesSentimentDocuments> documentsKeyPhrasesSentiment { get; set; }
+        public List<TextAnalyticsKeyPhrasesSentimentDocuments> documents { get; set; }
     }
 
     /// <summary>
@@ -86,9 +87,9 @@ namespace EmotionWPF
     /// </summary>
     public class TextAnalyticsKeyPhrasesResults
     {
-        public List<TextAnalyticsResultsKeyPhrasesDocuments> documentsKeyPhrases { get; set; }
+        public List<TextAnalyticsResultsKeyPhrasesDocuments> documents { get; set; }
 
-        public List<TextAnalyticsResultsErrors> errorsKeyPhrases { get; set; }
+        public List<TextAnalyticsResultsErrors> errors { get; set; }
     }
 
     /// <summary>
@@ -96,9 +97,9 @@ namespace EmotionWPF
     /// </summary>
     public class TextAnalyticsSentimentResults
     {
-        public List<TextAnalyticsResultsSentimentDocuments> documentsSentiment { get; set; }
+        public List<TextAnalyticsResultsSentimentDocuments> documents { get; set; }
 
-        public List<TextAnalyticsResultsErrors> errorsSentiment { get; set; }
+        public List<TextAnalyticsResultsErrors> errors { get; set; }
     }
 
 

@@ -23,7 +23,9 @@ namespace EmotionWPF
             success,
             networkTrouble,
             serviceTrouble,
-            languageNotSupported
+            languageNotSupported,
+            SentimentLanguageNotSupported,
+            KeyPhraseLanguageNotSupported
         }
 
         /// <summary>
@@ -41,8 +43,8 @@ namespace EmotionWPF
         /// </summary>
         public TextAnalyticsConnect()
         {
+            // Initiate instances
             textAnalyticsResults = new TextAnalyticsResults();
-
             textAnalysisConnectStats = new TextAnalysisStatistics();
         }
 
@@ -78,30 +80,36 @@ namespace EmotionWPF
             // If connection went well
             if (resultLanguageConnection == ConnectionResults.success)
             {
+                // Transform request content to correct format
                 textByte = KeyPhrasesSentimentRequestFormat(textAnalyse, language);
-
-                // Get Key Phrases with language precision
-                Tuple<ConnectionResults, String> keyPhrasesResults = await DetectKeyPhrases(webclient, textByte, language);
 
                 // Get Sentiment with language precision
                 Tuple<ConnectionResults, String> sentimentResults = await DetectSentiment(webclient, textByte, language);
+
+                // Get Key Phrases with language precision
+                Tuple<ConnectionResults, String> keyPhrasesResults = await DetectKeyPhrases(webclient, textByte, language);                
 
                 // Return ConnectionResults details
                 if(keyPhrasesResults.Item1 == ConnectionResults.success && sentimentResults.Item1 == ConnectionResults.success)
                 {
                     return ConnectionResults.success;
                 }
+                // If any trouble or language not supported for Key Phrases
                 else if (keyPhrasesResults.Item1 != ConnectionResults.success)
                 {
                     return keyPhrasesResults.Item1;
                 }
+                // If any trouble or language not supported for Sentiment
                 else if (sentimentResults.Item1 != ConnectionResults.success)
                 {
                     return sentimentResults.Item1;
                 }
             }
 
+            // UpdateTextAnalysisResultsToStats(textAnalyticsResults);
+
             return resultLanguageConnection;
+
         }
 
         /// <summary>
@@ -112,12 +120,15 @@ namespace EmotionWPF
         /// <param name="textByte">Text to analyse transformed to Byte format</param>
         /// <returns></returns>
         async Task<String> CallTextAnalyticsAPI(HttpClient webclient, string uri, byte[] textByte)
-        {
+        {    
             string responseAPI = "";
             HttpResponseMessage response;
 
             using (var content = new ByteArrayContent(textByte))
             {
+                // Declare type of sending document
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
                 // Try HTTP Request
                 try
                 {
@@ -206,91 +217,21 @@ namespace EmotionWPF
             }
 
             // From Errors indicated by API
-            if (languagesResultJson.errorsLanguages.Count != 0)
+            if (languagesResultJson.errors.Count != 0)
             {
                 return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble - Error : " 
-                    + languagesResultJson.errorsLanguages[0].id + " - Message : " 
-                    + languagesResultJson.errorsLanguages[0].message);
+                    + languagesResultJson.errors[0].id + " - Message : " 
+                    + languagesResultJson.errors[0].message);
             }
 
             // Get Language
             try
             {
-                textAnalyticsResults.languageDetected = languagesResultJson.documentsLanguages[0].detectedLanguages[0].name;
+                textAnalyticsResults.languageDetected = languagesResultJson.documents[0].detectedLanguages[0].name;
 
-                string languageShort = languagesResultJson.documentsLanguages[0].detectedLanguages[0].iso6391Name;
+                string languageShort = languagesResultJson.documents[0].detectedLanguages[0].iso6391Name;
 
                 return new Tuple<ConnectionResults, string>(ConnectionResults.success, languageShort);
-            }
-            catch (Exception)
-            {
-                return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble");
-            }
-        }
-
-        /// <summary>
-        /// To detect key phrases of the text to analyse with language precision and get connection result
-        /// </summary>
-        /// <param name="webclient">HTTP Client</param>
-        /// <param name="textByte">Text to analyse transformed to byte</param>
-        /// <param name="language">Language detected before</param>
-        /// <returns></returns>
-        async Task<Tuple<ConnectionResults, String>> DetectKeyPhrases(HttpClient webclient, byte[] textByte, string language)
-        {
-            // Call language detection API
-            string keyPhrasesResult = await CallKeyPhraseAPI(webclient, textByte);
-
-            TextAnalyticsKeyPhrasesResults keyPhrasesResultJson = new TextAnalyticsKeyPhrasesResults();
-
-            // Test Key Phrases detection results
-            // Detect connection trouble
-            if (keyPhrasesResult == "")
-            {
-                return new Tuple<ConnectionResults, string>(ConnectionResults.networkTrouble, "Probably network trouble");
-            }
-
-            // Detect API service trouble (code error)        
-            // From exception
-            try
-            {
-                keyPhrasesResultJson = JsonConvert.DeserializeObject<TextAnalyticsKeyPhrasesResults>(keyPhrasesResult);
-            }
-            catch (Exception)
-            {
-                return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble");
-            }
-
-            // Language not supported or others errors indicated by API
-            if (keyPhrasesResultJson.errorsKeyPhrases.Count != 0)
-            {
-                bool languageNotSupported = false;
-
-                foreach (var errorMessage in keyPhrasesResultJson.errorsKeyPhrases)
-                {
-                    if (errorMessage.message.Contains("Supplied language not supported"))
-                    {
-                        languageNotSupported = true;
-                    }
-                }
-
-                if (languageNotSupported)
-                {
-                    return new Tuple<ConnectionResults, string>(ConnectionResults.languageNotSupported, "Supplied language not supported");
-                }
-                else
-                {
-                    return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble - Error : "
-                       + keyPhrasesResultJson.errorsKeyPhrases[0].id + " - Message : "
-                       + keyPhrasesResultJson.errorsKeyPhrases[0].message);
-                }                
-            }
-
-            // Get Key Phrases
-            try
-            {
-                textAnalyticsResults.keyPhrases = keyPhrasesResultJson.documentsKeyPhrases[0].keyPhrases;
-
-                return new Tuple<ConnectionResults, string>(ConnectionResults.success, "");
             }
             catch (Exception)
             {
@@ -331,11 +272,11 @@ namespace EmotionWPF
             }
 
             // Language not supported or others errors indicated by API
-            if (sentimentResultJson.errorsSentiment.Count != 0)
+            if (sentimentResultJson.errors.Count != 0)
             {
                 bool languageNotSupported = false;
 
-                foreach (var errorMessage in sentimentResultJson.errorsSentiment)
+                foreach (var errorMessage in sentimentResultJson.errors)
                 {
                     if (errorMessage.message.Contains("Supplied language not supported"))
                     {
@@ -345,20 +286,90 @@ namespace EmotionWPF
 
                 if (languageNotSupported)
                 {
-                    return new Tuple<ConnectionResults, string>(ConnectionResults.languageNotSupported, "Supplied language not supported");
+                    return new Tuple<ConnectionResults, string>(ConnectionResults.SentimentLanguageNotSupported, "Supplied language not supported for Sentiment");
                 }
                 else
                 {
                     return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble - Error : "
-                       + sentimentResultJson.errorsSentiment[0].id + " - Message : "
-                       + sentimentResultJson.errorsSentiment[0].message);
+                       + sentimentResultJson.errors[0].id + " - Message : "
+                       + sentimentResultJson.errors[0].message);
                 }
             }
 
             // Get Sentiment
             try
             {
-                textAnalyticsResults.sentimentScore = sentimentResultJson.documentsSentiment[0].score;
+                textAnalyticsResults.sentimentScore = sentimentResultJson.documents[0].score;
+
+                return new Tuple<ConnectionResults, string>(ConnectionResults.success, "");
+            }
+            catch (Exception)
+            {
+                return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble");
+            }
+        }
+
+        /// <summary>
+        /// To detect key phrases of the text to analyse with language precision and get connection result
+        /// </summary>
+        /// <param name="webclient">HTTP Client</param>
+        /// <param name="textByte">Text to analyse transformed to byte</param>
+        /// <param name="language">Language detected before</param>
+        /// <returns></returns>
+        async Task<Tuple<ConnectionResults, String>> DetectKeyPhrases(HttpClient webclient, byte[] textByte, string language)
+        {
+            // Call language detection API
+            string keyPhrasesResult = await CallKeyPhraseAPI(webclient, textByte);
+
+            TextAnalyticsKeyPhrasesResults keyPhrasesResultJson = new TextAnalyticsKeyPhrasesResults();
+
+            // Test Key Phrases detection results
+            // Detect connection trouble
+            if (keyPhrasesResult == "")
+            {
+                return new Tuple<ConnectionResults, string>(ConnectionResults.networkTrouble, "Probably network trouble");
+            }
+
+            // Detect API service trouble (code error)        
+            // From exception
+            try
+            {
+                keyPhrasesResultJson = JsonConvert.DeserializeObject<TextAnalyticsKeyPhrasesResults>(keyPhrasesResult);
+            }
+            catch (Exception)
+            {
+                return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble");
+            }
+
+            // Language not supported or others errors indicated by API
+            if (keyPhrasesResultJson.errors.Count != 0)
+            {
+                bool languageNotSupported = false;
+
+                foreach (var errorMessage in keyPhrasesResultJson.errors)
+                {
+                    if (errorMessage.message.Contains("Supplied language not supported"))
+                    {
+                        languageNotSupported = true;
+                    }
+                }
+
+                if (languageNotSupported)
+                {
+                    return new Tuple<ConnectionResults, string>(ConnectionResults.KeyPhraseLanguageNotSupported, "Supplied language not supported for Key Phrases");
+                }
+                else
+                {
+                    return new Tuple<ConnectionResults, string>(ConnectionResults.serviceTrouble, "Service Trouble - Error : "
+                       + keyPhrasesResultJson.errors[0].id + " - Message : "
+                       + keyPhrasesResultJson.errors[0].message);
+                }                
+            }
+
+            // Get Key Phrases
+            try
+            {
+                textAnalyticsResults.keyPhrases = keyPhrasesResultJson.documents[0].keyPhrases;
 
                 return new Tuple<ConnectionResults, string>(ConnectionResults.success, "");
             }
@@ -377,11 +388,11 @@ namespace EmotionWPF
         /// </summary>
         /// <param name="textAnalyse">Text to analyse</param>
         /// <returns>Formatted byte request</returns>
-        byte[] LanguageRequestFormat(string textAnalyse)
+        public byte[] LanguageRequestFormat(string textAnalyse)
         {
             TextAnalyticsJsonFormatLanguage languageRequestByte = new TextAnalyticsJsonFormatLanguage()
             {
-                documentsLanguages = new List<TextAnalyticsLanguagesDocuments>()
+                documents = new List<TextAnalyticsLanguagesDocuments>()
                 {
                     new TextAnalyticsLanguagesDocuments
                     {
@@ -391,7 +402,11 @@ namespace EmotionWPF
                 }
             };
 
-            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(languageRequestByte));
+            var test2 = JsonConvert.SerializeObject(languageRequestByte);
+
+            var test = Encoding.UTF8.GetBytes(test2);
+
+            return test;
         }
 
         /// <summary>
@@ -400,11 +415,11 @@ namespace EmotionWPF
         /// <param name="textAnalyse">Text to analyse</param>
         /// <param name="textLanguage">Language of the text to analyse</param>
         /// <returns>Formatted byte request</returns>
-        byte[] KeyPhrasesSentimentRequestFormat(string textAnalyse, string textLanguage)
+        public byte[] KeyPhrasesSentimentRequestFormat(string textAnalyse, string textLanguage)
         {
             TextAnalyticsJsonFormatKeyPhrasesSentiment KeyPhrasesSentimentRequestByte = new TextAnalyticsJsonFormatKeyPhrasesSentiment()
             {
-                documentsKeyPhrasesSentiment = new List<TextAnalyticsKeyPhrasesSentimentDocuments>()
+                documents = new List<TextAnalyticsKeyPhrasesSentimentDocuments>()
                 {
                     new TextAnalyticsKeyPhrasesSentimentDocuments
                     {
