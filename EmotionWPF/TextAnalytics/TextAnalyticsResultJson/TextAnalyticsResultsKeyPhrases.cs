@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Emotion.Core
+namespace EmotionWPF
 {
     /// <summary>
     /// Class for Text Analytics Key Phrases results

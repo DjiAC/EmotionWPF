@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.IO;
 using System.Net.Http.Headers;
 
-namespace Emotion.Core
+namespace EmotionWPF
 {
     /// <summary>
     /// Connection to Cognitive Services Microsoft API - TEXT ANALYTICS

@@ -10,7 +10,7 @@
       Title="FrameTextAnalysis" 
       Width="800" 
       Height="600" 
-      Background="ForestGreen">
+      Background="LightSlateGray">
 
     <Grid Name="GridTextAnalysis">
         

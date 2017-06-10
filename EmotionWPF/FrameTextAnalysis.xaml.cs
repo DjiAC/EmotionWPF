@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Emotion.Core;
+using System.Windows.Controls;
 
 namespace EmotionWPF
 {
@@ -12,7 +13,9 @@ namespace EmotionWPF
         /// </summary>
         public FrameTextAnalysis()
         {
-            InitializeComponent();           
+            InitializeComponent();
+
+            textAnalyticsAction = new TextAnalyticsConnect();
         }         
     }
 }

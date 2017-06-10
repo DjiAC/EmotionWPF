@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using System.Collections.Specialized;
 
-namespace Emotion.Core
+namespace EmotionWPF
 { 
     /// <summary>
     /// 

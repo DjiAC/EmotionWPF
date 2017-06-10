@@ -12,7 +12,8 @@ namespace EmotionWPF
         /// </summary>
         public FrameStatistics()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            
         }         
     }
 }
