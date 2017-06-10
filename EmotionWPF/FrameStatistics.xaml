@@ -10,7 +10,7 @@
       Title="FrameStatistics" 
       Width="800" 
       Height="600" 
-      Background="Red">
+      Background="GreenYellow">
 
     <Grid Name="GridStatistics">
         

@@ -63,7 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Fakes Include="Fakes\EmotionWPF.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

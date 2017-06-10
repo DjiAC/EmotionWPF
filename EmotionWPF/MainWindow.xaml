@@ -18,8 +18,7 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Name="MenuContainer"
-              Background="Transparent">
+        <Grid Name="MenuContainer">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
@@ -64,8 +63,22 @@
             </Border>
         </Grid>
 
+        <Grid Grid.Column="0"
+              Name="MenuLogoContainer">
+            <Image Source="Resources\Emotion_Logo.png"
+                   RenderTransformOrigin=".5,.5">
+                <Image.LayoutTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90" />
+                    </TransformGroup>
+                </Image.LayoutTransform>
+            </Image>
+        </Grid>
+
         <Frame Grid.Column="1" 
                x:Name="FrameContainer"                
-               NavigationUIVisibility="Hidden"/>
+               NavigationUIVisibility="Hidden"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"/>
     </Grid>
 </Window>

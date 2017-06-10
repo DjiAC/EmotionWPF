@@ -20,6 +20,11 @@ namespace EmotionWPF
         static Grid menuSwitch { get; set; }
 
         /// <summary>
+        /// To Handle Left Side of the Window - Logo
+        /// </summary>
+        static Grid menuLogo { get; set; }
+
+        /// <summary>
         /// Frame for Emotion Part
         /// </summary>
         static FrameEmotion frameEmotion { get; set; }
@@ -49,7 +54,8 @@ namespace EmotionWPF
             InitializeComponent();
            
             // Initialize Menu - Frame Container - Emotion/TextAnalysis/Statistics Frames
-            menuSwitch = MenuContainer;            
+            menuSwitch = MenuContainer;
+            menuLogo = MenuLogoContainer;
             frameSwitch = FrameContainer;
             frameEmotion = new FrameEmotion();
             frameTextAnalysis = new FrameTextAnalysis();
@@ -57,7 +63,7 @@ namespace EmotionWPF
 
             // Initialize Frame Home Page
             frameHome = new FrameHome();
-
+            
             // Go to Home Page at launch
             ChangePage("Home Page");
         }
@@ -73,17 +79,21 @@ namespace EmotionWPF
                 case "Emotion":
                     frameSwitch.Content = frameEmotion;
                     menuSwitch.Visibility = Visibility.Visible;
+                    menuLogo.Visibility = Visibility.Hidden;
                     break;
                 case "Text Analysis":
                     frameSwitch.Content = frameTextAnalysis;
                     menuSwitch.Visibility = Visibility.Visible;
+                    menuLogo.Visibility = Visibility.Hidden;
                     break;
                 case "Statistics":
                     frameSwitch.Content = frameStatistics;
                     menuSwitch.Visibility = Visibility.Visible;
+                    menuLogo.Visibility = Visibility.Hidden;
                     break;
                 case "Home Page":
                     menuSwitch.Visibility = Visibility.Hidden;
+                    menuLogo.Visibility = Visibility.Visible;
                     frameSwitch.Content = frameHome;                    
                     break;
             }          

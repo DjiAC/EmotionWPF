@@ -10,7 +10,7 @@
       Title="FrameEmotion" 
       Width="800" 
       Height="600" 
-      Background="white">
+      Background="Navy">
 
     <Grid Name="GridEmotion">
         
