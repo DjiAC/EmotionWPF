@@ -9,8 +9,8 @@
       d:DesignWidth="300"
       Title="FrameStatistics" 
       Width="800" 
-      Height="600" 
-      Background="GreenYellow">
+      Height="570" 
+      Background="DimGray">
 
     <Grid Name="GridStatistics">
         

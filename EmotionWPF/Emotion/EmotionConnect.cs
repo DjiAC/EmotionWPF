@@ -57,12 +57,13 @@ namespace EmotionWPF
         /// <returns></returns>
         public async Task<ConnectionResults> CallService(string imagePath)
         {
-            var webclient = new HttpClient();
+            // Create http client
+            HttpClient webclient = new HttpClient();
 
-            // Request Headers
+            // Request Headers & URI
             webclient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "b80ed666c80c493999bc69f957694206");
-
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
+
             HttpResponseMessage response;
             string responseContent = "";
 
@@ -90,7 +91,6 @@ namespace EmotionWPF
             try
             {
                 emotionResults = JsonConvert.DeserializeObject<List<EmotionResults>>(responseContent);
-
             }
             // Catch Deserialize problem -> means the json returned a json is state an error
             catch (Exception)
@@ -102,7 +102,7 @@ namespace EmotionWPF
             if (emotionResults.Count != 0)
             {
                 // Update Results to the Statistics 
-                UpdateEmotionResultsToStats(emotionResults);
+                // UpdateEmotionResultsToStats(emotionResults);
 
                 // Return a success
                 return ConnectionResults.success;

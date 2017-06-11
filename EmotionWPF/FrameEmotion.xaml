@@ -8,11 +8,234 @@
       d:DesignHeight="300" 
       d:DesignWidth="300"
       Title="FrameEmotion" 
-      Width="800" 
-      Height="600" 
-      Background="Navy">
+      Width="790" 
+      Height="570" 
+      Background="DimGray">
 
     <Grid Name="GridEmotion">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Image Name="emotionImage" 
+                   Source="Resources\Cognitive.png" 
+                   Stretch="Uniform"
+                   Margin="10,0"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Name="additionImage"
+                        MouseUp="addImage" 
+                        Height="80"
+                        Width="80"
+                        VerticalAlignment="Center"
+                        Grid.Column="0"
+                        Cursor="Cross">
+                    <Image Source="Resources\Add.png"
+                           Height="80"
+                           Width="80"/>
+                </Border>
+
+                <Border Name="startContainer"
+                        MouseUp="startEmotion" 
+                        Height="80"
+                        Width="80"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Cursor="Cross">
+                    <Image Source="Resources\Start.png"
+                           Height="80"
+                           Width="80"/>
+                </Border>
+
+            </Grid>
+
+
+            <Label Name="emotionErrors"
+                   HorizontalContentAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="Red"
+                   FontSize="20"
+                   Height="50"
+                   Grid.Row="2"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Label Name="labelAnger"
+                   Content="Anger"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"/>
+            <Label Name="labelContempt"
+                   Content="Contempt"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="1"/>
+            <Label Name="labelDisgust"
+                   Content="Disgust"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="2"/>
+            <Label Name="labelFear"
+                   Content="Fear"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="3"/>
+            <Label Name="labelHappiness"
+                   Content="Happiness"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="4"/>
+            <Label Name="labelNeutral"
+                   Content="Neutral"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="5"/>
+            <Label Name="labelSadness"
+                   Content="Sadness"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="6"/>
+            <Label Name="labelSurprise"
+                   Content="Surprise"
+                   Margin="0"
+                   HorizontalContentAlignment="Center"
+                   Foreground="Navy"
+                   FontSize="24" 
+                   Width="150"
+                   VerticalAlignment="Center"
+                   Grid.Row="7"/>
+        </Grid>
         
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Name="resultAnger"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="0"/>
+            <TextBlock Name="resultContempt"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="1"/>
+            <TextBlock Name="resultDisgust"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="2"/>
+            <TextBlock Name="resultFear"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="3"/>
+            <TextBlock Name="resultHappiness"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="4"/>
+            <TextBlock Name="resultNeutral"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="5"/>
+            <TextBlock Name="resultSadness"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="6"/>
+            <TextBlock Name="resultSurprise"
+                   Height="30"
+                   Width="150" 
+                   TextAlignment="Center"
+                   Background="White"
+                   Padding="3"
+                   FontSize="20"
+                   Grid.Row="7"/>
+        </Grid>
+
     </Grid>
 </Page>

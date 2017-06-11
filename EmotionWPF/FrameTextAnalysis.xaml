@@ -9,29 +9,32 @@
       d:DesignWidth="300"
       Title="FrameTextAnalysis" 
       Width="800" 
-      Height="600" 
-      Background="LightSlateGray">
+      Height="570" 
+      Background="DimGray">
 
     <Grid Name="GridTextAnalysis">
         <TextBox Name="inputTextAnalysis"
                  Height="200"
                  Width="400" 
-                 Margin="200,32,200,368"
+                 Margin="200,32,200,338"
+                 FontSize="24"
                  Text="Please enter the text to analyse here"/>
         <Border Name="startContainer"
-                MouseUp="startTextAnalysis">
+                MouseUp="startTextAnalysis"
+                Cursor="Cross">
             <Image Source="Resources\Start.png"
-               Height="80"
-               Margin="350,242,350,278"/>
+                   Height="80"
+                   Width="80"
+                   Margin="350,242,350,248"/>
         </Border>        
         <Label Name="textAnalysisErrors"
-               Margin="75,341,74,217"
+               Margin="75,341,74,187"
                HorizontalContentAlignment="Center"
                Foreground="Red"
                FontSize="20"/>
         <Label Name="labelLanguage"
                Content="Language"
-               Margin="75,413,575,145"
+               Margin="75,413,575,115"
                HorizontalContentAlignment="Center"
                Foreground="Navy"
                FontSize="24" 
@@ -39,7 +42,7 @@
         <TextBlock Name="resultLanguage"
                    Height="40"
                    Width="150" 
-                   Margin="75,473,575,87"
+                   Margin="75,473,575,57"
                    Text="Language"
                    TextAlignment="Center"
                    Background="White"
@@ -47,7 +50,7 @@
                    FontSize="24"/>
         <Label Name="labelSentiment"
                Content="Sentiment"
-               Margin="325,413,325,145"
+               Margin="325,413,325,115"
                HorizontalContentAlignment="Center"
                Foreground="Navy"
                FontSize="24" 
@@ -55,7 +58,7 @@
         <TextBlock Name="resultSentiment"
                    Height="40"
                    Width="150" 
-                   Margin="325,473,325,87"
+                   Margin="325,473,325,57"
                    Text="Sentiment"
                    TextAlignment="Center"
                    Background="White"
@@ -63,7 +66,7 @@
                    FontSize="24"/>
         <Label Name="labelKeyPhrases"
                Content="Key Phrases"
-               Margin="576,413,74,145"
+               Margin="576,413,74,115"
                HorizontalContentAlignment="Center"
                Foreground="Navy"
                FontSize="24" 
@@ -71,10 +74,10 @@
         <TextBlock Name="resultKeyPhrases"
                    Height="80"
                    Width="150" 
-                   Margin="576,453,74,67"
+                   Margin="576,453,74,37"
                    Text="Key Phrases"
                    TextAlignment="Center"
                    Background="White"
-                   FontSize="24"/>
+                   FontSize="20"/>
     </Grid>
 </Page>

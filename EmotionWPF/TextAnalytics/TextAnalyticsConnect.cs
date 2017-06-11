@@ -106,6 +106,7 @@ namespace EmotionWPF
                 }
             }
 
+            // TODO
             // UpdateTextAnalysisResultsToStats(textAnalyticsResults);
 
             return resultLanguageConnection;

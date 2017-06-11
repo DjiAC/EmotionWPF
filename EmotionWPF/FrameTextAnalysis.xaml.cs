@@ -8,9 +8,7 @@ namespace EmotionWPF
     /// </summary>
     public partial class FrameTextAnalysis : Page
     {       
-        /// <summary>
-        /// Instant of TextAnalyticsConnect
-        /// </summary>
+        // Instance of TextAnalyticsConnect
         public static TextAnalyticsConnect textAnalyticsAction { get; set; }
 
         /// <summary>
@@ -32,6 +30,9 @@ namespace EmotionWPF
         {
             // Text filled in inputTextAnalysis
             string inputText = inputTextAnalysis.Text;
+
+            // Empty Text Analysis Results Blocks
+            EmptyTextAnalysisResultsBox();
 
             textAnalysisErrors.Content = "";
 
@@ -124,6 +125,14 @@ namespace EmotionWPF
             {
                 textAnalysisErrors.Content = "The Cognitive Service returned an error";
             }  
+        }
+
+        /// <summary>
+        /// Empty results text box to "clean"
+        /// </summary>
+        void EmptyTextAnalysisResultsBox()
+        {
+            resultLanguage.Text = resultSentiment.Text = resultKeyPhrases.Text = "";
         }
     }
 }
