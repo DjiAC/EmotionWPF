@@ -37,7 +37,7 @@ namespace EmotionWPF
             textAnalysisErrors.Content = "";
 
             // Check if text was written and different from place holder
-            if (inputText == "Please enter the to analyse here")
+            if (inputText == "Please enter the text to analyse here")
             {
                 // Advert user
                 textAnalysisErrors.Content = "You didn't change the initial text";

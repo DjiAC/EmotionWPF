@@ -55,5 +55,36 @@
       }
     ],
     "callEmotionDate": "2017-06-06T00:00:00"
+  },
+  {
+    "idEmotionCall": "4",
+    "faceDetected": "6",
+    "faceEmotion": [
+      {
+        "faceId": "1",
+        "faceEmotion": "Anger"
+      },
+      {
+        "faceId": "2",
+        "faceEmotion": "Disgust"
+      },
+      {
+        "faceId": "3",
+        "faceEmotion": "Disgust"
+      },
+      {
+        "faceId": "4",
+        "faceEmotion": "Disgust"
+      },
+      {
+        "faceId": "5",
+        "faceEmotion": "Disgust"
+      },
+      {
+        "faceId": "6",
+        "faceEmotion": "Disgust"
+      }
+    ],
+    "callEmotionDate": "2017-06-11T00:00:00"
   }
 ]

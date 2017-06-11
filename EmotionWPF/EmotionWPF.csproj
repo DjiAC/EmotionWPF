@@ -181,6 +181,12 @@
   <ItemGroup>
     <Resource Include="emotion_logo_FfP_9.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FacePCall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PerDay.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

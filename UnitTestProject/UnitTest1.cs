@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Emotion.Core;
+using EmotionWPF;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;

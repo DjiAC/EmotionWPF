@@ -8,11 +8,157 @@
       d:DesignHeight="300" 
       d:DesignWidth="300"
       Title="FrameStatistics" 
-      Width="800" 
+      Width="790" 
       Height="570" 
       Background="DimGray">
 
     <Grid Name="GridStatistics">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="Label"
+                   Text="Statistics"
+                   FontSize="50"
+                   Foreground="#3289C7"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Grid.Row="0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="labelEmotion"
+                   Content="Emotion"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"/>
+            <Label Name="labelTextAnalytics"
+                   Content="Text Analytics"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
+                   Grid.Column="2"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="callsEmotion"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Foreground="White"
+                   FontWeight="SemiBold"/>
+            <Image Name="callsCognitive"
+                   Source="Resources\Cognitive.png"
+                   Grid.Column="1"
+                   Margin="0,5"/>
+            <Label Name="callsTextAnalytics"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Foreground="White"
+                   FontWeight="SemiBold"
+                   Grid.Column="2"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="callsPerDayEmotion"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Foreground="White"
+                   FontWeight="SemiBold"/>
+            <Image Name="CallsPerDay"
+                   Source="Resources\PerDay.png"
+                   Grid.Column="1"
+                   Margin="0,5"/>
+            <Label Name="callsPerDayTextAnalytics"
+                   FontSize="24"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Foreground="White"
+                   FontWeight="SemiBold"
+                   Grid.Column="2"/>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="0.05*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="facesPerCall"
+                           FontSize="24"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Foreground="White"
+                           FontWeight="SemiBold"/>
+                    <Image Name="facesPerCallLogo"
+                           Source="Resources\FacePCall.png"
+                           Grid.Column="1"
+                           Margin="10,0"/>
+                </Grid>
+                
+                
+                
+                <Rectangle Grid.Row="1"
+                           Fill="White"
+                           Stroke="White"
+                           Margin="10,0"/>
+            </Grid>
+
+            <Rectangle Grid.Column="1"
+                       Fill="White"
+                       Stroke="White"
+                       Margin="0,10"/>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="0.05*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <Rectangle Grid.Row="1"
+                           Fill="White"
+                           Stroke="White"
+                           Margin="10,0"/>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>

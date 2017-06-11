@@ -203,7 +203,7 @@ namespace EmotionWPF
             emotionConnectStats.callEmotionDate = DateTime.Now;
 
             // Update Global Emotion Stats 
-            Statistics.EmotionStats.Add(emotionConnectStats); 
+            // Statistics.EmotionStats.Add(emotionConnectStats); 
         }
 
         #endregion

@@ -5,19 +5,41 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Linq;
 using System.Collections.Specialized;
+using System.Collections;
 
 namespace EmotionWPF
-{ 
+{
     /// <summary>
-    /// 
+    /// Statistics of personnal calls to Cognitive Services Microsoft API
     /// </summary>
-    public static class Statistics
+    public class Statistics
     {
         #region Variables 
 
-        public static List<EmotionStatistics> EmotionStats = new List<EmotionStatistics>();
+        // Emotion Stats
+        public List<EmotionStatistics> EmotionStats = new List<EmotionStatistics>();
+        public float callPerDayEmotion;
+        public float nbMeanFaces;
 
-        public static List<TextAnalysisStatistics> TextAnalysisStats = new List<TextAnalysisStatistics>();
+        // Text Analytics Stats
+        public List<TextAnalysisStatistics> TextAnalysisStats = new List<TextAnalysisStatistics>();
+        public float callPerDayTextAnalytics;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public Statistics()
+        {
+            // Get Emotion Global Stats
+            EmotionStats = new List<EmotionStatistics>();
+            GetEmotionStats();
+            CalculEmotionStats(EmotionStats);
+
+            // Get Text Analysis Global Stats
+            TextAnalysisStats = new List<TextAnalysisStatistics>();
+            GetTextAnalysisStats();
+            CalculTextAnalysisStats(TextAnalysisStats);
+        }
 
         #endregion
 
@@ -26,9 +48,9 @@ namespace EmotionWPF
         /// <summary>
         /// Get Emotion Call Statistics from local JSON File
         /// </summary>
-        public static List<EmotionStatistics> GetEmotionStats()
+        public List<EmotionStatistics> GetEmotionStats()
         {
-            EmotionStats = JsonConvert.DeserializeObject<List<EmotionStatistics>>(System.IO.File.ReadAllText(@"EmotionStats.json"));
+            EmotionStats = JsonConvert.DeserializeObject<List<EmotionStatistics>>(System.IO.File.ReadAllText(@"..\..\Statistics\EmotionStats.json"));
 
             return EmotionStats;
         }
@@ -36,9 +58,9 @@ namespace EmotionWPF
         /// <summary>
         /// Get TextAnalysis Call Statistics from local JSON File
         /// </summary>
-        public static List<TextAnalysisStatistics> GetTextAnalysisStats()
+        public List<TextAnalysisStatistics> GetTextAnalysisStats()
         {
-            TextAnalysisStats = JsonConvert.DeserializeObject<List<TextAnalysisStatistics>>(System.IO.File.ReadAllText(@"TextAnalysisStats.json"));
+            TextAnalysisStats = JsonConvert.DeserializeObject<List<TextAnalysisStatistics>>(System.IO.File.ReadAllText(@"..\..\Statistics\TextAnalysisStats.json"));
 
             return TextAnalysisStats;
         }
@@ -50,7 +72,7 @@ namespace EmotionWPF
         /// <summary>
         /// Update Emotion Call JSON Statistics to local JSON File
         /// </summary>
-        public static void UpdateEmotionJSONStats()
+        public void UpdateEmotionJSONStats()
         {
             System.IO.File.WriteAllText(@"EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
         }        
@@ -58,7 +80,7 @@ namespace EmotionWPF
         /// <summary>
         /// Update TextAnalysis Call JSON Statistics to local JSON File
         /// </summary>
-        public static void UpdateTextAnalysisJSONStats()
+        public void UpdateTextAnalysisJSONStats()
         {
             System.IO.File.WriteAllText(@"TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
         }
@@ -71,17 +93,17 @@ namespace EmotionWPF
         /// Calcul for different showed Emotion Call Statistics
         /// </summary>
         /// <param name="EmotionStats">List of all Emotion Call Statistics</param>
-        public static void CalculEmotionStats(List<EmotionStatistics> EmotionStats)
+        public void CalculEmotionStats(List<EmotionStatistics> EmotionStats)
         {
             // Variables for calculs 
 
             // Date
-            int nbEmotionCall = 0;
-            int nbEmotionDay = 0;
+            float nbEmotionCall = 0;
+            float nbEmotionDay = 0;
             DateTime dateEmotionCall = new DateTime(2000, 1, 1);
 
             // Faces
-            int nbFaces = 0;
+            float nbFaces = 0;
 
             // Faces per Emotion
             Dictionary<String, int> facesPerEmotion = new Dictionary<String, int>();
@@ -150,28 +172,27 @@ namespace EmotionWPF
             }
 
             // Total number of call by Total number of day with a call
-            float callPerDay = nbEmotionCall / nbEmotionDay;
+            callPerDayEmotion = nbEmotionCall / nbEmotionDay;
                                                          
             // Mean number of Faces detected per Call
-            float nbMeanFaces = nbFaces / nbEmotionCall;
+            nbMeanFaces = nbFaces / nbEmotionCall;
         }
 
         /// <summary>
         /// Calcul for different showed Text Analysis Call Statistics
         /// </summary>
         /// <param name="TextAnalysisStats">List of all Text Analysis Call Statistics</param>
-        public static void CalculTextAnalysisStats(List<TextAnalysisStatistics> TextAnalysisStats)
+        public void CalculTextAnalysisStats(List<TextAnalysisStatistics> TextAnalysisStats)
         {
             // Variables for calculs 
 
             // Date
-            int nbTextAnalysisCall = 0;
-            int nbTextAnalysisDay = 0;
+            float nbTextAnalysisCall = 0;
+            float nbTextAnalysisDay = 0;
             DateTime dateTextAnalysisCall = new DateTime(2000, 1, 1);
 
             // Languages
             ListDictionary callPerLanguage = new ListDictionary();
-            //List<Dictionary<String, int>> callPerLanguage = new List<Dictionary<String, int>>();
             callPerLanguage.Add("English", 0);
             callPerLanguage.Add("French", 0);
             callPerLanguage.Add("Spanish", 0);
@@ -200,7 +221,8 @@ namespace EmotionWPF
                 // Calcul Total Number of Call per Language
                 if (callPerLanguage.Contains(textAnalyticsCallStatistic.languageDetected))
                 {
-                    callPerLanguage[textAnalyticsCallStatistic.languageDetected] = + 1;
+
+                    callPerLanguage[textAnalyticsCallStatistic.languageDetected] = Convert.ToInt32(callPerLanguage[textAnalyticsCallStatistic.languageDetected]) + 1;
                 }
                 else
                 {
@@ -224,18 +246,23 @@ namespace EmotionWPF
             }
 
             // Total number of call by Total number of day with a call
-            float callPerDay = nbTextAnalysisCall / nbTextAnalysisDay;
+            callPerDayTextAnalytics = nbTextAnalysisCall / nbTextAnalysisDay;
 
             // Mean number of language detected per Call
             Dictionary<String, float> callPerLanguagePercentage = new Dictionary<String, float>();
-            
-            // Foreach List of Languages detected and calcul percentage of repartition
-            foreach(Tuple<String, int> languageNumber in callPerLanguage)
-            {
-                callPerLanguagePercentage.Add(languageNumber.Item1, (languageNumber.Item2 / nbTextAnalysisCall) * 100);
-            }   
-        }
 
+            // Foreach List of Languages detected and calcul percentage of repartition
+            int nbLanguage = callPerLanguage.Count;
+            string[] keysLanguage = new string[nbLanguage];
+            float[] valueLanguages = new float[nbLanguage];
+            callPerLanguage.Keys.CopyTo(keysLanguage, 0);
+            callPerLanguage.Values.CopyTo(valueLanguages, 0);
+
+            for(int i = 0; i < nbLanguage; i++)
+            {
+                callPerLanguagePercentage.Add(keysLanguage[i], (valueLanguages[i] / nbTextAnalysisCall) * 100);
+            }            
+        }
         #endregion
     }
 }

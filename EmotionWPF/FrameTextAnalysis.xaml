@@ -8,79 +8,108 @@
       d:DesignHeight="300" 
       d:DesignWidth="300"
       Title="FrameTextAnalysis" 
-      Width="800" 
+      Width="790" 
       Height="570" 
       Background="DimGray">
 
     <Grid Name="GridTextAnalysis">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
         <TextBox Name="inputTextAnalysis"
                  Height="200"
                  Width="400" 
-                 Margin="200,32,200,338"
                  FontSize="24"
-                 Text="Please enter the text to analyse here"/>
+                 Text="Please enter the text to analyse here"
+                 Grid.Row="0"/>
+
         <Border Name="startContainer"
-                MouseUp="startTextAnalysis"
-                Cursor="Cross">
+            MouseUp="startTextAnalysis"
+            Cursor="Cross"
+            Grid.Row="1">
             <Image Source="Resources\Start.png"
-                   Height="80"
-                   Width="80"
-                   Margin="350,242,350,248"/>
-        </Border>        
+                Height="80"
+                Width="80"/>
+        </Border>
         <Label Name="textAnalysisErrors"
-               Margin="75,341,74,187"
                HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
                Foreground="Red"
-               FontSize="20"/>
-        <Label Name="labelLanguage"
-               Content="Language"
-               Margin="75,413,575,115"
-               HorizontalContentAlignment="Center"
-               Foreground="#3289C7"
-               FontWeight="SemiBold"
-               FontSize="24" 
-               Width="150"/>
-        <TextBlock Name="resultLanguage"
+               FontSize="20"
+               Grid.Row="2"/>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Name="labelLanguage"
+                   Content="Language"
+                   HorizontalContentAlignment="Center"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
+                   FontSize="24" 
+                   Width="150"
+                   Grid.Column="0"/>
+            <Label Name="labelSentiment"
+                   Content="Sentiment"
+                   HorizontalContentAlignment="Center"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
+                   FontSize="24" 
+                   Width="150"
+                   Grid.Column="1"/>
+            <Label Name="labelKeyPhrases"
+                   Content="Key Phrases"
+                   HorizontalContentAlignment="Center"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
+                   FontSize="24" 
+                   Width="150"
+                   Grid.Column="2"/>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Name="resultLanguage"
                    Height="40"
                    Width="150" 
-                   Margin="75,473,575,57"
                    Text="Language"
                    TextAlignment="Center"
                    Background="White"
                    Padding="3"
                    FontSize="24"/>
-        <Label Name="labelSentiment"
-               Content="Sentiment"
-               Margin="325,413,325,115"
-               HorizontalContentAlignment="Center"
-               Foreground="#3289C7"
-               FontWeight="SemiBold"
-               FontSize="24" 
-               Width="150"/>
-        <TextBlock Name="resultSentiment"
+
+            <TextBlock Name="resultSentiment"
                    Height="40"
                    Width="150" 
-                   Margin="325,473,325,57"
                    Text="Sentiment"
                    TextAlignment="Center"
                    Background="White"
                    Padding="3"
-                   FontSize="24"/>
-        <Label Name="labelKeyPhrases"
-               Content="Key Phrases"
-               Margin="576,413,74,115"
-               HorizontalContentAlignment="Center"
-               Foreground="#3289C7"
-               FontWeight="SemiBold"
-               FontSize="24" 
-               Width="150"/>
-        <TextBlock Name="resultKeyPhrases"
+                   FontSize="24"
+                   Grid.Column="1"/>
+
+            <TextBlock Name="resultKeyPhrases"
                    Height="80"
                    Width="150" 
-                   Margin="576,453,74,37"
                    Text="Key Phrases"
                    TextAlignment="Center"
                    Background="White"
-                   FontSize="20"/>
+                   FontSize="20"
+                   Grid.Column="2"/>
+        </Grid>
     </Grid>
 </Page>

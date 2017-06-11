@@ -105,12 +105,10 @@ namespace EmotionWPF
                     return sentimentResults.Item1;
                 }
             }
-
-            // TODO
+            
             // UpdateTextAnalysisResultsToStats(textAnalyticsResults);
 
             return resultLanguageConnection;
-
         }
 
         /// <summary>
@@ -457,7 +455,7 @@ namespace EmotionWPF
             textAnalysisConnectStats.callTextAnalyticsDate = DateTime.Now;
 
             // Update Global Emotion Stats 
-            Statistics.TextAnalysisStats.Add(textAnalysisConnectStats);
+            // Statistics.TextAnalysisStats.Add(textAnalysisConnectStats);
         }
 
         #endregion
