@@ -24,12 +24,16 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>        
 
+            <Grid Grid.Row="0"
+                  Name="GridImage">
             <Image Name="emotionImage" 
                    Source="Resources\Cognitive.png" 
                    Stretch="Uniform"
-                   Margin="10,0"/>
+                   Height="auto"
+                   Margin="10,10"/>
+            </Grid>
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -71,6 +75,14 @@
                    FontSize="20"
                    Height="50"
                    Grid.Row="2"/>
+
+            <Label Name="mainEmotion"
+                   HorizontalContentAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="#3289C7"
+                   FontSize="20"
+                   Height="50"
+                   Grid.Row="2"/>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -89,7 +101,8 @@
                    Content="Anger"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -98,7 +111,8 @@
                    Content="Contempt"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -107,7 +121,8 @@
                    Content="Disgust"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -116,7 +131,8 @@
                    Content="Fear"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -125,7 +141,8 @@
                    Content="Happiness"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -134,7 +151,8 @@
                    Content="Neutral"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -143,7 +161,8 @@
                    Content="Sadness"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"
@@ -152,7 +171,8 @@
                    Content="Surprise"
                    Margin="0"
                    HorizontalContentAlignment="Center"
-                   Foreground="Navy"
+                   Foreground="#3289C7"
+                   FontWeight="SemiBold"
                    FontSize="24" 
                    Width="150"
                    VerticalAlignment="Center"

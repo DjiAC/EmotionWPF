@@ -36,7 +36,8 @@
                Content="Language"
                Margin="75,413,575,115"
                HorizontalContentAlignment="Center"
-               Foreground="Navy"
+               Foreground="#3289C7"
+               FontWeight="SemiBold"
                FontSize="24" 
                Width="150"/>
         <TextBlock Name="resultLanguage"
@@ -52,7 +53,8 @@
                Content="Sentiment"
                Margin="325,413,325,115"
                HorizontalContentAlignment="Center"
-               Foreground="Navy"
+               Foreground="#3289C7"
+               FontWeight="SemiBold"
                FontSize="24" 
                Width="150"/>
         <TextBlock Name="resultSentiment"
@@ -68,7 +70,8 @@
                Content="Key Phrases"
                Margin="576,413,74,115"
                HorizontalContentAlignment="Center"
-               Foreground="Navy"
+               Foreground="#3289C7"
+               FontWeight="SemiBold"
                FontSize="24" 
                Width="150"/>
         <TextBlock Name="resultKeyPhrases"
