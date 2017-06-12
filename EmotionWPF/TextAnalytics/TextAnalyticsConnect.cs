@@ -443,7 +443,7 @@ namespace EmotionWPF
         public void UpdateTextAnalysisResultsToStats(TextAnalyticsResults textAnalysisResults)
         {
             // Unique ID with DateTime Ticks in seconds
-            textAnalysisConnectStats.idTextAnalysisCall = Convert.ToInt32(DateTime.Now.Ticks / 1000000000);
+            textAnalysisConnectStats.idTextAnalysisCall = DateTime.Now.Ticks.ToString().Substring(10, 5);
 
             // Language detected
             textAnalysisConnectStats.languageDetected = textAnalysisResults.languageDetected;

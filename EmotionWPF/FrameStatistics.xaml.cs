@@ -9,7 +9,7 @@ namespace EmotionWPF
     public partial class FrameStatistics : Page
     {
         // Instance of Statistics
-        public static Statistics statisticsGlobal { get; set; }
+        public Statistics statisticsGlobal { get; set; }
 
         /// <summary>
         /// Constructor

@@ -57,9 +57,6 @@ namespace EmotionWPF
             menuSwitch = MenuContainer;
             menuLogo = MenuLogoContainer;
             frameSwitch = FrameContainer;
-            frameEmotion = new FrameEmotion();
-            frameTextAnalysis = new FrameTextAnalysis();
-            frameStatistics = new FrameStatistics();
 
             // Initialize Frame Home Page
             frameHome = new FrameHome();
@@ -77,16 +74,19 @@ namespace EmotionWPF
             switch (newPage)
             {
                 case "Emotion":
+                    frameEmotion = new FrameEmotion();
                     frameSwitch.Content = frameEmotion;
                     menuSwitch.Visibility = Visibility.Visible;
                     menuLogo.Visibility = Visibility.Hidden;
                     break;
                 case "Text Analysis":
+                    frameTextAnalysis = new FrameTextAnalysis();
                     frameSwitch.Content = frameTextAnalysis;
                     menuSwitch.Visibility = Visibility.Visible;
                     menuLogo.Visibility = Visibility.Hidden;
                     break;
                 case "Statistics":
+                    frameStatistics = new FrameStatistics();
                     frameSwitch.Content = frameStatistics;
                     menuSwitch.Visibility = Visibility.Visible;
                     menuLogo.Visibility = Visibility.Hidden;

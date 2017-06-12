@@ -26,6 +26,9 @@ namespace EmotionWPF
             serviceTrouble
         }
 
+        // Instance of Statistics
+        public Statistics statisticsGlobal { get; set; }
+
         /// <summary>
         /// List of Emotions Response - EmotionResult format
         /// </summary>
@@ -44,6 +47,8 @@ namespace EmotionWPF
             emotionResults = new List<EmotionResults>();
 
             emotionConnectStats = new EmotionStatistics();
+
+            statisticsGlobal = new Statistics();
         }
 
         #endregion
@@ -102,7 +107,7 @@ namespace EmotionWPF
             if (emotionResults.Count != 0)
             {
                 // Update Results to the Statistics 
-                // UpdateEmotionResultsToStats(emotionResults);
+                UpdateEmotionResultsToStats(emotionResults);
 
                 // Return a success
                 return ConnectionResults.success;
@@ -141,10 +146,15 @@ namespace EmotionWPF
         public void UpdateEmotionResultsToStats (List<EmotionResults> emotionResults)
         {
             // Unique ID with DateTime Ticks in seconds
-            emotionConnectStats.idEmotionCall = Convert.ToInt32(DateTime.Now.Ticks / 1000000000);
+
+            emotionConnectStats.idEmotionCall = DateTime.Now.Ticks.ToString().Substring(10,5);
 
             // Number of Face Detected
             emotionConnectStats.faceDetected = emotionResults.Count;
+
+            // Init List of faceEmotions
+            emotionConnectStats.faceEmotion = new List<faceEmotions>();
+
 
             int idFace = 1;
 
@@ -193,8 +203,11 @@ namespace EmotionWPF
                     emotionFaceScoresMain = emotionFace.Scores.surprise;
                     emotionFaceScoresNameMain = "Surprise";
                 }
-                
-                //emotionConnectStats.faceEmotion.Add(new Tuple<int, String>(idFace, emotionFaceScoresNameMain));
+
+                faceEmotions faceAnalysed = new faceEmotions();
+                faceAnalysed.faceId = idFace;
+                faceAnalysed.faceMainEmotion = emotionFaceScoresNameMain;
+                emotionConnectStats.faceEmotion.Add(faceAnalysed);
 
                 idFace += 1;
             }            
@@ -202,8 +215,9 @@ namespace EmotionWPF
             // DateTime of the call
             emotionConnectStats.callEmotionDate = DateTime.Now;
 
-            // Update Global Emotion Stats 
-            // Statistics.EmotionStats.Add(emotionConnectStats); 
+            // Update Global Emotion Stats
+            statisticsGlobal.EmotionStats.Add(emotionConnectStats);
+            statisticsGlobal.UpdateEmotionJSONStats();
         }
 
         #endregion

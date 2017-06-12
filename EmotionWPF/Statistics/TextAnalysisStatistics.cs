@@ -12,7 +12,7 @@ namespace EmotionWPF
         /// <summary>
         /// Unique ID of TextAnalysis Call
         /// </summary>
-        public int idTextAnalysisCall { get; set; }
+        public string idTextAnalysisCall { get; set; }
 
         /// <summary>
         /// Language detected

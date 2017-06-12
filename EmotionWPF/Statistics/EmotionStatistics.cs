@@ -12,7 +12,7 @@ namespace EmotionWPF
         /// <summary>
         /// Unique ID of Emotion Call
         /// </summary>
-        public int idEmotionCall { get; set; }
+        public string idEmotionCall { get; set; }
 
         /// <summary>
         /// Number of Face detected
@@ -20,7 +20,7 @@ namespace EmotionWPF
         public int faceDetected { get; set; }
 
         /// <summary>
-        /// Dictionnary of Face with major emotion
+        /// List of Face with main emotion
         /// </summary>
         public List<faceEmotions> faceEmotion { get; set; }
 
@@ -43,6 +43,6 @@ namespace EmotionWPF
         /// <summary>
         /// Main Emotion of the face
         /// </summary>
-        public string faceEmotion { get; set; }
+        public string faceMainEmotion { get; set; }
     }
 }

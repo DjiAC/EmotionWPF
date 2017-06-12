@@ -71,27 +71,7 @@ namespace EmotionWPF
             return TextAnalysisStats;
         }
 
-        #endregion
-
-        #region Update JSON Stats  
-
-        /// <summary>
-        /// Update Emotion Call JSON Statistics to local JSON File
-        /// </summary>
-        public void UpdateEmotionJSONStats()
-        {
-            System.IO.File.WriteAllText(@"..\..\Statistics\EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
-        }        
-
-        /// <summary>
-        /// Update TextAnalysis Call JSON Statistics to local JSON File
-        /// </summary>
-        public void UpdateTextAnalysisJSONStats()
-        {
-            System.IO.File.WriteAllText(@"..\..\Statistics\TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
-        }
-
-        #endregion
+        #endregion      
 
         #region Calculs
 
@@ -141,35 +121,35 @@ namespace EmotionWPF
                 // Calcul Faces per Emotion
                 foreach(faceEmotions emotionCallMainStatistic in emotionCallStatistic.faceEmotion)
                 {
-                    if(emotionCallMainStatistic.faceEmotion == "Anger")
+                    if(emotionCallMainStatistic.faceMainEmotion == "Anger")
                     {
                         facesPerEmotion["Anger"] = facesPerEmotion["Anger"] + 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Contempt")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Contempt")
                     {
                         facesPerEmotion["Contempt"] = facesPerEmotion["Contempt"] + 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Disgust")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Disgust")
                     {
                         facesPerEmotion["Disgust"] = facesPerEmotion["Disgust"] + 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Fear")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Fear")
                     {
                         facesPerEmotion["Fear"] += 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Happiness")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Happiness")
                     {
                         facesPerEmotion["Happiness"] += 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Neutral")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Neutral")
                     {
                         facesPerEmotion["Neutral"] += 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Sadness")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Sadness")
                     {
                         facesPerEmotion["Sadness"] += 1;
                     }
-                    else if (emotionCallMainStatistic.faceEmotion == "Surprise")
+                    else if (emotionCallMainStatistic.faceMainEmotion == "Surprise")
                     {
                         facesPerEmotion["Surprise"] += 1;
                     }
@@ -268,6 +248,26 @@ namespace EmotionWPF
                 callPerLanguagePercentage.Add(keysLanguage[i], (valueLanguages[i] / nbTextAnalysisCall) * 100);
             }            
         }
+        #endregion
+
+        #region Update JSON Stats  
+
+        /// <summary>
+        /// Update Emotion Call JSON Statistics to local JSON File
+        /// </summary>
+        public void UpdateEmotionJSONStats()
+        {
+            System.IO.File.WriteAllText(@"..\..\Statistics\EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
+        }
+
+        /// <summary>
+        /// Update TextAnalysis Call JSON Statistics to local JSON File
+        /// </summary>
+        public void UpdateTextAnalysisJSONStats()
+        {
+            System.IO.File.WriteAllText(@"..\..\Statistics\TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
+        }
+
         #endregion
     }
 }
