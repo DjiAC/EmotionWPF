@@ -28,10 +28,11 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void TestUpdateEmotionResultsToStats()
         {
             EmotionConnect test2 = new EmotionConnect();
             Assert.AreEqual(test2.CallService("../EmotionWPF/Ressources/happy.jpeg"), EmotionConnect.ConnectionResults.success);
         }
+
     }
 }

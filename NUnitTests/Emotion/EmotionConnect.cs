@@ -6,10 +6,9 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.IO;
 using System.Net.Http.Headers;
-using Emotion.Core;
 
 
-namespace EmotionWPF
+namespace NUnitTests
 {
     /// <summary>
     /// Connection to Cognitive Services Microsoft API - EMOTION
@@ -46,9 +45,10 @@ namespace EmotionWPF
         /// </summary>
         public EmotionConnect()
         {
-            // Initiate instances
             emotionResults = new List<EmotionResults>();
+
             emotionConnectStats = new EmotionStatistics();
+
             statisticsGlobal = new Statistics();
         }
 
