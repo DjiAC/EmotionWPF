@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace EmotionWPF
 {
@@ -11,6 +13,12 @@ namespace EmotionWPF
         // Instance of TextAnalyticsConnect
         public static TextAnalyticsConnect textAnalyticsAction { get; set; }
 
+        // Instance of Start Button
+        static Image start { get; set; }
+
+        // Instance of Loading
+        static Image loading { get; set; }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -19,6 +27,9 @@ namespace EmotionWPF
             InitializeComponent();
 
             textAnalyticsAction = new TextAnalyticsConnect();
+
+            start = startButton;
+            loading = loadingLogo;
         }
 
         /// <summary>
@@ -28,6 +39,9 @@ namespace EmotionWPF
         /// <param name="e"></param>
         private async void startTextAnalysis(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            start.Visibility = Visibility.Hidden;
+            loading.Visibility = Visibility.Visible;
+
             // Text filled in inputTextAnalysis
             string inputText = inputTextAnalysis.Text;
 
@@ -66,6 +80,9 @@ namespace EmotionWPF
                     DisplayTextAnalysisErrors(textAnalysisResult);
                 }
             }
+
+            start.Visibility = Visibility.Visible;
+            loading.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -133,6 +150,18 @@ namespace EmotionWPF
         void EmptyTextAnalysisResultsBox()
         {
             resultLanguage.Text = resultSentiment.Text = resultKeyPhrases.Text = "";
+        }
+
+        /// <summary>
+        ///  To empty TextBox the first time you click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void inputFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            inputTextAnalysis = (TextBox)sender;
+            inputTextAnalysis.Text = string.Empty;
+            inputTextAnalysis.GotFocus -= inputFocus;
         }
     }
 }

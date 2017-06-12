@@ -44,10 +44,9 @@ namespace EmotionWPF
         /// </summary>
         public EmotionConnect()
         {
+            // Initiate instances
             emotionResults = new List<EmotionResults>();
-
             emotionConnectStats = new EmotionStatistics();
-
             statisticsGlobal = new Statistics();
         }
 

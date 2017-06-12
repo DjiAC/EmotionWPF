@@ -29,6 +29,11 @@ namespace EmotionWPF
         }
 
         /// <summary>
+        /// Emotion Statistics
+        /// </summary>
+        public TextAnalysisStatistics textAnalyticsConnectStats { get; set; }
+
+        /// <summary>
         /// Text Analysis Response
         /// </summary>
         public TextAnalyticsResults textAnalyticsResults { get; set; }
@@ -38,6 +43,9 @@ namespace EmotionWPF
         /// </summary>
         public TextAnalysisStatistics textAnalysisConnectStats { get; set; }
 
+        // Instance of Statistics
+        public Statistics statisticsGlobal { get; set; }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -46,6 +54,7 @@ namespace EmotionWPF
             // Initiate instances
             textAnalyticsResults = new TextAnalyticsResults();
             textAnalysisConnectStats = new TextAnalysisStatistics();
+            statisticsGlobal = new Statistics();
         }
 
         #endregion
@@ -79,7 +88,7 @@ namespace EmotionWPF
 
             // If connection went well
             if (resultLanguageConnection == ConnectionResults.success)
-            {
+            {         
                 // Transform request content to correct format
                 textByte = KeyPhrasesSentimentRequestFormat(textAnalyse, language);
 
@@ -87,10 +96,13 @@ namespace EmotionWPF
                 Tuple<ConnectionResults, String> sentimentResults = await DetectSentiment(webclient, textByte, language);
 
                 // Get Key Phrases with language precision
-                Tuple<ConnectionResults, String> keyPhrasesResults = await DetectKeyPhrases(webclient, textByte, language);                
+                Tuple<ConnectionResults, String> keyPhrasesResults = await DetectKeyPhrases(webclient, textByte, language);
+
+                UpdateTextAnalysisResultsToStats(textAnalyticsResults);
 
                 // Return ConnectionResults details
-                if(keyPhrasesResults.Item1 == ConnectionResults.success && sentimentResults.Item1 == ConnectionResults.success)
+                if(keyPhrasesResults.Item1 == ConnectionResults.success 
+                    && sentimentResults.Item1 == ConnectionResults.success)
                 {
                     return ConnectionResults.success;
                 }
@@ -104,9 +116,7 @@ namespace EmotionWPF
                 {
                     return sentimentResults.Item1;
                 }
-            }
-            
-            // UpdateTextAnalysisResultsToStats(textAnalyticsResults);
+            }           
 
             return resultLanguageConnection;
         }
@@ -454,8 +464,9 @@ namespace EmotionWPF
             // DateTime of the call
             textAnalysisConnectStats.callTextAnalyticsDate = DateTime.Now;
 
-            // Update Global Emotion Stats 
-            // Statistics.TextAnalysisStats.Add(textAnalysisConnectStats);
+            // Update Global Emotion Stats
+            statisticsGlobal.TextAnalysisStats.Add(textAnalysisConnectStats);
+            statisticsGlobal.UpdateTextAnalysisJSONStats();
         }
 
         #endregion

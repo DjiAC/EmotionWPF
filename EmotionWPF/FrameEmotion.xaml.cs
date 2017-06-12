@@ -29,6 +29,12 @@ namespace EmotionWPF
         // List of Face Rectangle for drawing
         List<Rectangle> faceRectangles { get; set; }
 
+        // Instance of Start Button
+        static Image start { get; set; }
+
+        // Instance of Loading
+        static Image loading { get; set; }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -38,6 +44,9 @@ namespace EmotionWPF
 
             emotionAction = new EmotionConnect();
             faceRectangles = new List<Rectangle>();
+
+            start = startButton;
+            loading = loadingLogo;
         }
 
         /// <summary>
@@ -75,6 +84,9 @@ namespace EmotionWPF
         /// <param name="e"></param>
         private async void startEmotion(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            start.Visibility = Visibility.Hidden;
+            loading.Visibility = Visibility.Visible;
+
             // Check if an image was selected
             if (imagePath != "")
             {
@@ -103,6 +115,9 @@ namespace EmotionWPF
             {
                 emotionErrors.Content = "You didn't choose your image";
             }
+
+            start.Visibility = Visibility.Visible;
+            loading.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
