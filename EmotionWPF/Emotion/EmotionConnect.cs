@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.IO;
 using System.Net.Http.Headers;
-using Emotion.Core;
+using EmotionWPF;
 
 
 namespace EmotionWPF
