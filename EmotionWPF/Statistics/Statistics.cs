@@ -25,6 +25,11 @@ namespace EmotionWPF
         // Text Analytics Stats
         public List<TextAnalysisStatistics> TextAnalysisStats = new List<TextAnalysisStatistics>();
         public float callPerDayTextAnalytics;
+        public int score0To30;
+        public int score31To60;
+        public int score61To100;
+        public Dictionary<String, float> callPerLanguagePercentage;
+
 
         /// <summary>
         /// Constructor
@@ -201,9 +206,9 @@ namespace EmotionWPF
             callPerLanguage.Add("Japanese", 0);
 
             // Sentiment Scores
-            int score0To30 = 0;
-            int score31To60 = 0;
-            int score61To100 = 0;
+            score0To30 = 0;
+            score31To60 = 0;
+            score61To100 = 0;
 
             // Foreach though all Emotion Call Statistics
             foreach (TextAnalysisStatistics textAnalyticsCallStatistic in TextAnalysisStats)
@@ -249,7 +254,7 @@ namespace EmotionWPF
             callPerDayTextAnalytics = nbTextAnalysisCall / nbTextAnalysisDay;
 
             // Mean number of language detected per Call
-            Dictionary<String, float> callPerLanguagePercentage = new Dictionary<String, float>();
+            callPerLanguagePercentage = new Dictionary<String, float>();
 
             // Foreach List of Languages detected and calcul percentage of repartition
             int nbLanguage = callPerLanguage.Count;

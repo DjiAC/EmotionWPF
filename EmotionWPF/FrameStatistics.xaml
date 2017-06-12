@@ -15,21 +15,12 @@
     <Grid Name="GridStatistics">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="6*"/>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>        
 
-        <TextBlock Name="Label"
-                   Text="Statistics"
-                   FontSize="50"
-                   Foreground="#3289C7"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"
-                   Grid.Row="0"/>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="0.5*"/>
@@ -52,7 +43,7 @@
                    Grid.Column="2"/>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="0.5*"/>
@@ -77,7 +68,7 @@
                    Grid.Column="2"/>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="0.5*"/>
@@ -102,7 +93,7 @@
                    Grid.Column="2"/>
         </Grid>
 
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="0.05*"/>
@@ -318,15 +309,199 @@
 
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="2.5*"/>
                     <RowDefinition Height="0.05*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
 
-                <Rectangle Grid.Row="1"
+                <Label Grid.Row="0"
+                       Name="Score"
+                       Content="Sentiment Score Repartition"
+                       FontSize="20"
+                       Foreground="White"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Name="ZeroToThirty"
+                               Content="0 to 30"
+                               FontSize="20"
+                               Foreground="White"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"/>
+                        <Label Name="ZeroToThirtyScore"
+                               FontSize="20"
+                               Foreground="White"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Grid.Row="1"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Name="ThirtyToSixty"
+                               Content="31 to 60"
+                               FontSize="20"
+                               Foreground="White"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"/>
+                        <Label Name="ThirtyToSixtyScore"
+                               FontSize="20"
+                               Foreground="White"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Grid.Row="1"/>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Name="SixtyToHundred"
+                               Content="61 to 100"
+                               FontSize="20"
+                               Foreground="White"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"/>
+                        <Label Name="SixtyToHundredScore"
+                               FontSize="20"
+                               Foreground="White"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Grid.Row="1"/>
+                    </Grid>
+
+                </Grid>                
+
+                <Rectangle Grid.Row="2"
                            Fill="White"
                            Stroke="White"
                            Margin="10,0"/>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Image Name="French"
+                               Source="Resources\French.png"
+                               Grid.Row="0"
+                               Margin="10,10"/>
+                        <Image Name="Spanish"
+                               Source="Resources\Spanish.png"
+                               Grid.Row="1"
+                               Margin="10,10"/>
+                        <Image Name="Japanese"
+                               Source="Resources\Japanese.png"
+                               Grid.Row="2"
+                               Margin="10,10"/>                        
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Name="percentageFrench"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
+                        <Label Name="percentageSpanish"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="1"/>
+                        <Label Name="percentageJapanese"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="2"/>
+                    </Grid>
+
+                    <Grid Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Image Name="English"
+                               Source="Resources\English.png"
+                               Grid.Row="0"
+                               Margin="10,10"/>
+                        <Image Name="Italian"
+                               Source="Resources\Italian.png"
+                               Grid.Row="1"
+                               Margin="10,10"/>
+                        <Image Name="German"
+                               Source="Resources\German.png"
+                               Grid.Row="2"
+                               Margin="10,10"/>
+                    </Grid>
+
+                    <Grid Grid.Column="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label Name="percentageEnglish"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
+                        <Label Name="percentageItalian"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="1"/>
+                        <Label Name="percentageGerman"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="2"/>
+
+                    </Grid>
+
+                    <Rectangle Grid.Column="2"
+                               Fill="White"
+                               Stroke="White"
+                               Margin="0,5"/>
+
+                </Grid>
             </Grid>
 
         </Grid>

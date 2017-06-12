@@ -53,6 +53,18 @@ namespace EmotionWPF
             // Calls per Day
             callsPerDayTextAnalytics.Content = statisticsGlobal.callPerDayTextAnalytics.ToString();
 
+            // Sentiment Score
+            ZeroToThirtyScore.Content = statisticsGlobal.score0To30.ToString();
+            ThirtyToSixtyScore.Content = statisticsGlobal.score31To60.ToString();
+            SixtyToHundredScore.Content = statisticsGlobal.score61To100.ToString();
+
+            // Language Repartition
+            percentageFrench.Content =  statisticsGlobal.callPerLanguagePercentage["French"].ToString("0.00") + "%";
+            percentageEnglish.Content = statisticsGlobal.callPerLanguagePercentage["English"].ToString("0.00") + "%";
+            percentageGerman.Content = statisticsGlobal.callPerLanguagePercentage["German"].ToString("0.00") + "%";
+            percentageItalian.Content = statisticsGlobal.callPerLanguagePercentage["Italian"].ToString("0.00") + "%";
+            percentageSpanish.Content = statisticsGlobal.callPerLanguagePercentage["Spanish"].ToString("0.00") + "%";
+            percentageJapanese.Content = statisticsGlobal.callPerLanguagePercentage["Japanese"].ToString("0.00") + "%";
         }
     }
 }
