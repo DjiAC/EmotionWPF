@@ -20,6 +20,7 @@ namespace EmotionWPF
         public List<EmotionStatistics> EmotionStats = new List<EmotionStatistics>();
         public float callPerDayEmotion;
         public float nbMeanFaces;
+        public Dictionary<String, int> facesPerEmotion;
 
         // Text Analytics Stats
         public List<TextAnalysisStatistics> TextAnalysisStats = new List<TextAnalysisStatistics>();
@@ -74,7 +75,7 @@ namespace EmotionWPF
         /// </summary>
         public void UpdateEmotionJSONStats()
         {
-            System.IO.File.WriteAllText(@"EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
+            System.IO.File.WriteAllText(@"..\..\Statistics\EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
         }        
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace EmotionWPF
         /// </summary>
         public void UpdateTextAnalysisJSONStats()
         {
-            System.IO.File.WriteAllText(@"TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
+            System.IO.File.WriteAllText(@"..\..\Statistics\TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
         }
 
         #endregion
@@ -106,7 +107,7 @@ namespace EmotionWPF
             float nbFaces = 0;
 
             // Faces per Emotion
-            Dictionary<String, int> facesPerEmotion = new Dictionary<String, int>();
+            facesPerEmotion = new Dictionary<String, int>();
             facesPerEmotion.Add("Anger", 0);
             facesPerEmotion.Add("Contempt", 0);
             facesPerEmotion.Add("Disgust", 0);
@@ -133,42 +134,41 @@ namespace EmotionWPF
                 nbFaces += emotionCallStatistic.faceDetected;
 
                 // Calcul Faces per Emotion
-                foreach(Tuple<int, String> emotionCallMainStatistic in emotionCallStatistic.faceEmotion)
+                foreach(faceEmotions emotionCallMainStatistic in emotionCallStatistic.faceEmotion)
                 {
-                    if(emotionCallMainStatistic.Item2 == "Anger")
+                    if(emotionCallMainStatistic.faceEmotion == "Anger")
                     {
-                        facesPerEmotion["Anger"] += 1;
+                        facesPerEmotion["Anger"] = facesPerEmotion["Anger"] + 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Contempt")
+                    else if (emotionCallMainStatistic.faceEmotion == "Contempt")
                     {
-                        facesPerEmotion["Contempt"] += 1;
+                        facesPerEmotion["Contempt"] = facesPerEmotion["Contempt"] + 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Disgust")
+                    else if (emotionCallMainStatistic.faceEmotion == "Disgust")
                     {
-                        facesPerEmotion["Disgust"] += 1;
+                        facesPerEmotion["Disgust"] = facesPerEmotion["Disgust"] + 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Fear")
+                    else if (emotionCallMainStatistic.faceEmotion == "Fear")
                     {
                         facesPerEmotion["Fear"] += 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Happiness")
+                    else if (emotionCallMainStatistic.faceEmotion == "Happiness")
                     {
                         facesPerEmotion["Happiness"] += 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Neutral")
+                    else if (emotionCallMainStatistic.faceEmotion == "Neutral")
                     {
                         facesPerEmotion["Neutral"] += 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Sadness")
+                    else if (emotionCallMainStatistic.faceEmotion == "Sadness")
                     {
                         facesPerEmotion["Sadness"] += 1;
                     }
-                    else if (emotionCallMainStatistic.Item2 == "Surprise")
+                    else if (emotionCallMainStatistic.faceEmotion == "Surprise")
                     {
                         facesPerEmotion["Surprise"] += 1;
                     }
-                }
-                
+                }                
             }
 
             // Total number of call by Total number of day with a call

@@ -22,11 +22,27 @@ namespace EmotionWPF
         /// <summary>
         /// Dictionnary of Face with major emotion
         /// </summary>
-        public List<Tuple<int, String>> faceEmotion { get; set; }
+        public List<faceEmotions> faceEmotion { get; set; }
 
         /// <summary>
         /// Date of Emotion Call
         /// </summary>
         public DateTime callEmotionDate { get; set; }
+    }
+
+    /// <summary>
+    /// Class for face Emotions
+    /// </summary>
+    public class faceEmotions
+    {
+        /// <summary>
+        /// Unique ID of face Emotions
+        /// </summary>
+        public int faceId { get; set; }
+
+        /// <summary>
+        /// Main Emotion of the face
+        /// </summary>
+        public string faceEmotion { get; set; }
     }
 }

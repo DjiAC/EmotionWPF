@@ -39,6 +39,15 @@ namespace EmotionWPF
             // Faces per Call
             facesPerCall.Content = statisticsGlobal.nbMeanFaces.ToString();
 
+            // Total Main Emotion Faces
+            totalAnger.Content = statisticsGlobal.facesPerEmotion["Anger"];
+            totalContempt.Content = statisticsGlobal.facesPerEmotion["Contempt"];
+            totalDisgust.Content = statisticsGlobal.facesPerEmotion["Disgust"];
+            totalFear.Content = statisticsGlobal.facesPerEmotion["Fear"];
+            totalHappiness.Content = statisticsGlobal.facesPerEmotion["Happiness"];
+            totalNeutral.Content = statisticsGlobal.facesPerEmotion["Neutral"];
+            totalSadness.Content = statisticsGlobal.facesPerEmotion["Sadness"];
+            totalSurprise.Content = statisticsGlobal.facesPerEmotion["Surprise"];
 
             // Text Analysis
             // Calls per Day

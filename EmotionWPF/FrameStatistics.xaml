@@ -111,7 +111,7 @@
 
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="0.05*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
@@ -132,14 +132,184 @@
                            Grid.Column="1"
                            Margin="10,0"/>
                 </Grid>
-                
-                
-                
+
                 <Rectangle Grid.Row="1"
                            Fill="White"
                            Stroke="White"
                            Margin="10,0"/>
-            </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Name="Anger"
+                               Content="Anger"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
+                        <Label Name="Contempt"
+                               Content="Contempt"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="1"/>
+                        <Label Name="Disgust"
+                               Content="Disgust"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="2"/>
+                        <Label Name="Fear"
+                               Content="Fear"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="3"/>
+                    </Grid>
+                    
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Name="totalAnger"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
+                        <Label Name="totalContempt"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="1"/>
+                        <Label Name="totalDisgust"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="2"/>
+                        <Label Name="totalFear"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="3"/>
+                    </Grid>
+
+                    <Grid Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Name="Happiness"
+                               Content="Happiness"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
+                        <Label Name="Neutral"
+                               Content="Neutral"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="1"/>
+                        <Label Name="Sadness"
+                               Content="Sadness"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="2"/>
+                        <Label Name="Surprise"
+                               Content="Surprise"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="3"/>
+                    </Grid>
+
+                    <Grid Grid.Column="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Name="totalHappiness"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
+                        <Label Name="totalNeutral"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="1"/>
+                        <Label Name="totalSadness"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="2"/>
+                        <Label Name="totalSurprise"
+                               FontSize="20"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Grid.Row="3"/>
+                    </Grid>
+
+                    <Rectangle Grid.Column="2"
+                               Fill="White"
+                               Stroke="White"
+                               Margin="0,5"/>
+
+                </Grid>              
+                
+            </Grid>        
 
             <Rectangle Grid.Column="1"
                        Fill="White"

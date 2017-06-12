@@ -194,7 +194,7 @@ namespace EmotionWPF
                     emotionFaceScoresNameMain = "Surprise";
                 }
                 
-                emotionConnectStats.faceEmotion.Add(new Tuple<int, String>(idFace, emotionFaceScoresNameMain));
+                //emotionConnectStats.faceEmotion.Add(new Tuple<int, String>(idFace, emotionFaceScoresNameMain));
 
                 idFace += 1;
             }            
