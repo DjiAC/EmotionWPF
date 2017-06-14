@@ -56,7 +56,7 @@ namespace NUnitTests
         /// </summary>
         public List<EmotionStatistics> GetEmotionStats()
         {
-            EmotionStats = JsonConvert.DeserializeObject<List<EmotionStatistics>>(System.IO.File.ReadAllText(@"../../Statistics/EmotionStats.json"));
+            EmotionStats = JsonConvert.DeserializeObject<List<EmotionStatistics>>(System.IO.File.ReadAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/EmotionStats.json"));
 
             return EmotionStats;
         }
@@ -66,7 +66,7 @@ namespace NUnitTests
         /// </summary>
         public List<TextAnalysisStatistics> GetTextAnalysisStats()
         {
-            TextAnalysisStats = JsonConvert.DeserializeObject<List<TextAnalysisStatistics>>(System.IO.File.ReadAllText(@"../../Statistics/TextAnalysisStats.json"));
+            TextAnalysisStats = JsonConvert.DeserializeObject<List<TextAnalysisStatistics>>(System.IO.File.ReadAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/TextAnalysisStats.json"));
 
             return TextAnalysisStats;
         }
@@ -82,7 +82,6 @@ namespace NUnitTests
         public void CalculEmotionStats(List<EmotionStatistics> EmotionStats)
         {
             // Variables for calculs 
-
             // Date
             float nbEmotionCall = 0;
             float nbEmotionDay = 0;
@@ -257,7 +256,7 @@ namespace NUnitTests
         /// </summary>
         public void UpdateEmotionJSONStats()
         {
-            System.IO.File.WriteAllText(@"..\..\Statistics\EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
+            System.IO.File.WriteAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/EmotionStats.json", JsonConvert.SerializeObject(EmotionStats));
         }
 
         /// <summary>
@@ -265,7 +264,7 @@ namespace NUnitTests
         /// </summary>
         public void UpdateTextAnalysisJSONStats()
         {
-            System.IO.File.WriteAllText(@"..\..\Statistics\TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
+            System.IO.File.WriteAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/TextAnalysisStats.json", JsonConvert.SerializeObject(TextAnalysisStats));
         }
 
         #endregion
