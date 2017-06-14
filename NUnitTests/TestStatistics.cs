@@ -60,7 +60,28 @@ namespace NUnitTests
 		}
 
 		[Test()]
-		public void TestTextAnalysisStats()
+		public void TestCalculTextAnalysisStats()
+		{
+			var json = System.IO.File.ReadAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/EmotionStats.json");
+
+			Statistics statControl = new Statistics();
+			JsonSerializer serializer = new JsonSerializer();
+			var test = JsonConvert.DeserializeObject<List<EmotionStatistics>>(json);
+
+			statControl.CalculEmotionStats((List<EmotionStatistics>)test);
+
+			//statControl.CalculEmotionStats((EmotionStatistics)serializer.SerializeObject(json));
+
+			Console.WriteLine(statControl.facesPerEmotion["Contempt"]);
+			Assert.IsNotEmpty(statControl.facesPerEmotion);
+			//Assert.IsTrue(statControl.facesPerEmotion["Anger"] == );
+			//Assert.Fail();
+		}
+		
+
+
+		[Test()]
+		public void testCalculTextAnalysisStats()
 		{
 			var json = System.IO.File.ReadAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/TextAnalysisStats.json");
 
@@ -69,7 +90,7 @@ namespace NUnitTests
 			var test = JsonConvert.DeserializeObject<List<TextAnalysisStatistics>>(json);
 
             statControl.CalculTextAnalysisStats((List<TextAnalysisStatistics>)test);
-
+            Console.WriteLine(statControl.score0To30);
             Assert.IsTrue(statControl.score0To30 > 0);
 			Assert.IsTrue(statControl.score31To60 > 0);
 			Assert.IsTrue(statControl.score61To100 > 0);
