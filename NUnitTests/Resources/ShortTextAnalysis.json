@@ -1,0 +1,26 @@
+﻿[
+  {
+    "idTextAnalysisCall": "1",
+    "languageDetected": "English",
+    "sentimentScore": 0.92,
+    "callTextAnalyticsDate": "2016-08-05T00:00:00"
+  },
+  {
+    "idTextAnalysisCall": "2",
+    "languageDetected": "English",
+    "sentimentScore": 0.76,
+    "callTextAnalyticsDate": "2017-04-04T00:00:00"
+  },
+  {
+    "idTextAnalysisCall": "3",
+    "languageDetected": "English",
+    "sentimentScore": 0.88,
+    "callTextAnalyticsDate": "2017-09-04T00:00:00"
+  },
+  {
+    "idTextAnalysisCall": "4",
+    "languageDetected": "English",
+    "sentimentScore": 0.58,
+    "callTextAnalyticsDate": "2017-02-04T00:00:00"
+  }
+]
