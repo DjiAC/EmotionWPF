@@ -21,9 +21,7 @@ namespace NUnitTests
 				Assert.IsTrue(stats[i].faceDetected == test[i].faceDetected);
                 Assert.IsTrue(stats[i].callEmotionDate == test[i].callEmotionDate);
 			}
-
         }
-
 		[Test()]
 		public void TestGetTextAnalysisStats()
         {
@@ -78,22 +76,19 @@ namespace NUnitTests
 			//Assert.Fail();
 		}
 		
-
-
 		[Test()]
 		public void testCalculTextAnalysisStats()
 		{
-			var json = System.IO.File.ReadAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Statistics/TextAnalysisStats.json");
+			var json = System.IO.File.ReadAllText(@"/Users/nicolas/Projects/DjiAC/EmotionWPF/DjiAC/EmotionWPF.git/branches/dev/NUnitTests/Resources/ShortTextAnalysis.json");
 
 			Statistics statControl = new Statistics();
 			JsonSerializer serializer = new JsonSerializer();
 			var test = JsonConvert.DeserializeObject<List<TextAnalysisStatistics>>(json);
-
+            //Console.WriteLine(statControl.);
             statControl.CalculTextAnalysisStats((List<TextAnalysisStatistics>)test);
-            Console.WriteLine(statControl.score0To30);
-            Assert.IsTrue(statControl.score0To30 > 0);
-			Assert.IsTrue(statControl.score31To60 > 0);
-			Assert.IsTrue(statControl.score61To100 > 0);
+            Assert.IsTrue(statControl.score0To30 == 0);
+			Assert.IsTrue(statControl.score31To60 == 1);
+			Assert.IsTrue(statControl.score61To100 == 3);
 		}
 
 		[Test()]
