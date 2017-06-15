@@ -3,6 +3,8 @@ using EmotionWPF;
 
 namespace UnitTestProject
 {
+    // Not used - Need mock
+
     /// <summary>
     /// EmotionWPF.App Test Class
     /// </summary>
@@ -17,7 +19,7 @@ namespace UnitTestProject
         public FrameStatistics frameStatistics;
 
         /// <summary>
-        /// Initialization of instances for the tests
+        /// Initialization of test with instances
         /// </summary>
         [TestInitialize]
         public void TestInit()
@@ -37,7 +39,7 @@ namespace UnitTestProject
         /// To test MainPage_ChangePage() method
         /// </summary>
         [TestMethod]
-        public void MainPage_ChangePage()
+        public void UnitTest_MainPage_ChangePage()
         {
             // mainWindow.ChangePage("Emotion");
 
@@ -51,7 +53,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test MainPage_HomeButton() method
         /// </summary>
-        public void MainPage_HomeButton()
+        public void UnitTest_MainPage_HomeButton()
         {
             // mainWindow.HomeButton();
         }
@@ -59,7 +61,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test MainPage_EmotionButton() method
         /// </summary>
-        public void MainPage_EmotionButton()
+        public void UnitTest_MainPage_EmotionButton()
         {
             // mainWindow.EmotionButton();
         }
@@ -67,7 +69,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test MainPage_TextAnalysisButton() method
         /// </summary>
-        public void MainPage_TextAnalysisButton()
+        public void UnitTest_MainPage_TextAnalysisButton()
         {
             // mainWindow.TextAnalysisButton();
         }
@@ -75,7 +77,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test MainPage_StatisticsButton() method
         /// </summary>
-        public void MainPage_StatisticsButton()
+        public void UnitTest_MainPage_StatisticsButton()
         {
             // mainWindow.StatisticsButton();
         }
@@ -87,7 +89,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameHome_EmotionButton() method
         /// </summary>
-        public void FrameHome_EmotionButton()
+        public void UnitTest_FrameHome_EmotionButton()
         {
             // frameHome.EmotionButton()
         }
@@ -95,7 +97,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameHome_TextAnalysisButton() method
         /// </summary>
-        public void FrameHome_TextAnalysisButton()
+        public void UnitTest_FrameHome_TextAnalysisButton()
         {
             // frameHome.TextAnalysisButton()
         }
@@ -103,7 +105,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameHome_StatisticsButton() method
         /// </summary>
-        public void FrameHome_StatisticsButton()
+        public void UnitTest_FrameHome_StatisticsButton()
         {
             // frameHome.StatisticsButton()
         }
@@ -115,7 +117,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_addImage() method
         /// </summary>
-        public void FrameEmotion_addImage()
+        public void UnitTest_FrameEmotion_addImage()
         {
 
         }
@@ -123,7 +125,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_startEmotion() method
         /// </summary>
-        public void FrameEmotion_startEmotion()
+        public void UnitTest_FrameEmotion_startEmotion()
         {
 
         }
@@ -131,7 +133,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_DisplayEmotionResults() method
         /// </summary>
-        public void FrameEmotion_DisplayEmotionResults()
+        public void UnitTest_FrameEmotion_DisplayEmotionResults()
         {
 
         }
@@ -139,7 +141,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_DisplayEmotionErrors() method
         /// </summary>
-        public void FrameEmotion_DisplayEmotionErrors()
+        public void UnitTest_FrameEmotion_DisplayEmotionErrors()
         {
 
         }
@@ -147,7 +149,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_EmptyEmotionResultsBox() method
         /// </summary>
-        public void FrameEmotion_EmptyEmotionResultsBox()
+        public void UnitTest_FrameEmotion_EmptyEmotionResultsBox()
         {
 
         }
@@ -155,7 +157,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_DisplayFaceRectangles() method
         /// </summary>
-        public void FrameEmotion_DisplayFaceRectangles()
+        public void UnitTest_FrameEmotion_DisplayFaceRectangles()
         {
 
         }
@@ -163,7 +165,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_DeleteFaceRectangles() method
         /// </summary>
-        public void FrameEmotion_DeleteFaceRectangles()
+        public void UnitTest_FrameEmotion_DeleteFaceRectangles()
         {
 
         }
@@ -171,7 +173,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_HighlightFaceRectanglesSelected() method
         /// </summary>
-        public void FrameEmotion_HighlightFaceRectanglesSelected()
+        public void UnitTest_FrameEmotion_HighlightFaceRectanglesSelected()
         {
 
         }
@@ -179,7 +181,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameEmotion_faceRectangle_Click() method
         /// </summary>
-        public void FrameEmotion_faceRectangle_Click()
+        public void UnitTest_FrameEmotion_faceRectangle_Click()
         {
 
         }
@@ -191,7 +193,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameTextAnalysis_EmotionButton() method
         /// </summary>
-        public void FrameTextAnalysis_startTextAnalysis()
+        public void UnitTest_FrameTextAnalysis_startTextAnalysis()
         {
 
         }
@@ -199,7 +201,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameTextAnalysis_DisplayTextAnalysisResults() method
         /// </summary>
-        public void FrameTextAnalysis_DisplayTextAnalysisResults()
+        public void UnitTest_FrameTextAnalysis_DisplayTextAnalysisResults()
         {
 
         }
@@ -207,7 +209,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameTextAnalysis_DisplayTextAnalysisErrors() method
         /// </summary>
-        public void FrameTextAnalysis_DisplayTextAnalysisErrors()
+        public void UnitTest_FrameTextAnalysis_DisplayTextAnalysisErrors()
         {
 
         }
@@ -215,7 +217,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameTextAnalysis_EmptyTextAnalysisResultsBox() method
         /// </summary>
-        public void FrameTextAnalysis_EmptyTextAnalysisResultsBox()
+        public void UnitTest_FrameTextAnalysis_EmptyTextAnalysisResultsBox()
         {
 
         }
@@ -223,7 +225,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameTextAnalysis_inputFocus() method
         /// </summary>
-        public void FrameTextAnalysis_inputFocus()
+        public void UnitTest_FrameTextAnalysis_inputFocus()
         {
 
         }
@@ -235,7 +237,7 @@ namespace UnitTestProject
         /// <summary>
         /// To test FrameHome_EmotionButton() method
         /// </summary>
-        public void FrameStatistics_InitStats()
+        public void UnitTest_FrameStatistics_InitStats()
         {
 
         }

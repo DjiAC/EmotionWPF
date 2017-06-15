@@ -34,14 +34,14 @@
                Height="80"
                Width="80"
                MouseUp="startTextAnalysis"
-               Cursor="Cross"
+               Cursor="Hand"
                Visibility="Visible"
                Grid.Row="1"/>
         <Image Name="loadingLogo"
                gif:ImageBehavior.AnimatedSource="Resources\Loading.gif"
                Height="80"
                Width="80"
-               Cursor="Cross"
+               Cursor="Hand"
                Visibility="Hidden"
                Grid.Row="1"/>
         

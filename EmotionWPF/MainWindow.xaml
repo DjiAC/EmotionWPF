@@ -30,7 +30,7 @@
                     Background="White"
                     Name="Home"
                     MouseUp="HomeButton"
-                    Cursor="Cross">
+                    Cursor="Hand">
                 <Image Source="Resources\Emotion_Logo.png"
                        Margin="10"/>
             </Border>
@@ -39,7 +39,7 @@
                     Background="Navy"
                     Name="Emotion"
                     MouseUp="EmotionButton"
-                    Cursor="Cross">
+                    Cursor="Hand">
                 <Image Source="Resources\Image.png" 
                        Margin="30"/>
             </Border>
@@ -48,7 +48,7 @@
                     Background="ForestGreen"
                     Name="TextAnalysis"
                     MouseUp="TextAnalysisButton"
-                    Cursor="Cross">
+                    Cursor="Hand">
                 <Image Source="Resources\Text.png"
                        Margin="30"/>
             </Border>
@@ -57,7 +57,7 @@
                     Background="GreenYellow"
                     Name="Statistics"
                     MouseUp="StatisticsButton"
-                    Cursor="Cross">
+                    Cursor="Hand">
                     <Image Source="Resources\Statistics.png"
                        Margin="30"/>
             </Border>

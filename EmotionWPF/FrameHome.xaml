@@ -23,7 +23,8 @@
             <Button HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         Click="EmotionButton"
-                        Background="Transparent">
+                        Background="Transparent"
+                        Cursor="Hand">
                 <Image Name="EmotionImg" 
                        Source="Resources\Image.png"
                        Stretch="Uniform" 
@@ -50,7 +51,8 @@
             <Button HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         Click="TextAnalysisButton"
-                        Background="Transparent">
+                        Background="Transparent"
+                        Cursor="Hand">
                 <Image Name="TextAnalysisImg" 
                        Source="Resources\Text.png"
                        Stretch="Uniform" 
@@ -77,7 +79,8 @@
             <Button HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
                         Click="StatisticsButton"
-                        Background="Transparent">
+                        Background="Transparent"
+                        Cursor="Hand">
                 <Image Name="StatisticsImg" 
                        Source="Resources\Statistics.png" 
                        Stretch="Uniform" 

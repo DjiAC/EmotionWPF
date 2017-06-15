@@ -224,7 +224,7 @@ namespace EmotionWPF
                     // Design
                     Stroke = new SolidColorBrush(Color.FromRgb(50, 137, 199)),
                     StrokeThickness = 2,
-                    Cursor = Cursors.Cross,
+                    Cursor = Cursors.Hand,
                     Fill = new SolidColorBrush(Color.FromArgb(0,0,0,0)),
 
                     // Placement

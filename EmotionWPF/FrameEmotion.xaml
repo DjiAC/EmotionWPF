@@ -48,7 +48,7 @@
                         Width="80"
                         VerticalAlignment="Center"
                         Grid.Column="0"
-                        Cursor="Cross">
+                        Cursor="Hand">
                     <Image Source="Resources\Add.png"
                            Height="80"
                            Width="80"/>
@@ -59,14 +59,14 @@
                        Height="80"
                        Width="80"
                        MouseUp="startEmotion"
-                       Cursor="Cross"
+                       Cursor="Hand"
                        Visibility="Visible"
                        Grid.Column="1"/>
                 <Image Name="loadingLogo"
                        gif:ImageBehavior.AnimatedSource="Resources\Loading.gif"
                        Height="80"
                        Width="80"
-                       Cursor="Cross"
+                       Cursor="Hand"
                        Visibility="Hidden"
                        Grid.Column="1"/>
 
